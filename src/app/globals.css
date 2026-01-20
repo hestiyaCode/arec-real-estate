@@ -1,26 +1,28 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gabarito', sans-serif !important;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Pure Black Background */
+  --bg-pure: #000000;
+  --bg-card: #0f0f0f;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  
+  /* Emerald Green Theme */
+  --accent-green: #27ae60;
+  --accent-green-hover: #1e8449;
+  
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --nav-height: 80px; /* Thoda sleek height */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-pure);
+  color: var(--text-main);
 }
