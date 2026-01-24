@@ -1,0 +1,189 @@
+/* Base Footer Styles */
+.footer {
+  background-color: #050505; /* Deep black matching hero */
+  color: #ffffff; /* Light grey text for good contrast but not harsh white */
+  padding: 80px 20px 40px 20px;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #1f1f1f;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Top Grid Layout */
+.topFooterGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr; /* First column slightly wider */
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+/* Column Styling */
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand Branding Column (Col 1) */
+.brandLogoSmall {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.greenDot {
+  color: #2ecc71;
+}
+
+.brandDesc {
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.icon {
+  color: #2ecc71;
+}
+
+/* Headings and Links */
+.colHeading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+
+.legalHeading {
+  margin-top: 30px;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 14px;
+}
+
+.linkList li a {
+  text-decoration: none;
+  color: #a3a3a3;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.linkList li a:hover {
+  color: #2ecc71; /* Hover turns Green */
+  padding-left: 5px; /* Subtle shift effect */
+}
+
+/* Social Media Icons */
+.socialLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+  border: 1px solid #1f1f1f;
+}
+
+.socialLinks a:hover {
+  background: #2ecc71;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* Divider Line */
+.divider {
+  height: 1px;
+  background: #1f1f1f;
+  margin-bottom: 40px;
+}
+
+/* Bottom Footer Section */
+.bottomFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Aligns copyright text with bottom of big logo */
+  position: relative;
+}
+
+.copyrightText {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* THE BIG LOGO AT THE END */
+.bigWatermarkLogo {
+  font-size: 8rem; /* Very large size */
+  font-weight: 900;
+  /* Changed opacity from 0.03 to 0.2 to make it visible */
+  color: #ffffff; 
+  line-height: 0.8;
+  letter-spacing: -2px;
+  user-select: none; /* Prevents selection */
+  pointer-events: none; /* Prevents clicking */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .topFooterGrid {
+    grid-template-columns: 1fr 1fr; /* 2x2 grid on tablets */
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 20px 30px 20px;
+  }
+
+  .topFooterGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 50px;
+  }
+
+  .brandLogoSmall {
+    font-size: 1.5rem;
+  }
+
+  .bottomFooter {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .bigWatermarkLogo {
+    font-size: 5rem; /* Smaller on mobile */
+    order: -1; /* Moves logo above copyright on mobile */
+  }
+}

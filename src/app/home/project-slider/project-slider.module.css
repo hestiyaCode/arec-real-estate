@@ -1,0 +1,233 @@
+/* Variables matching your theme */
+.section {
+  background-color: #050505; /* Deep black background matching hero */
+  padding: 80px 20px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif; /* Assuming Inter or similar sans-serif */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+/* Header Styling */
+.headerContent {
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #2ecc71; /* Adjust this hex code to match your specific green exactly */
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #a3a3a3;
+  line-height: 1.6;
+}
+
+/* Slider Wrapper */
+.sliderWrapper {
+  padding-bottom: 40px; /* Space for pagination dots */
+}
+
+/* Card Styling */
+.card {
+  background-color: #121212; /* Slightly lighter than bg */
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(46, 204, 113, 0.1); /* Subtle green glow on hover */
+  border-color: #2ecc71;
+}
+
+/* Image Area */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #333;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.statusOpen {
+  background-color: #2ecc71;
+  color: #000;
+}
+
+/* Content Area */
+.cardContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.icon {
+  color: #666;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.accentIcon {
+  color: #2ecc71;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.statValue {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.divider {
+  height: 1px;
+  background-color: #2a2a2a;
+  margin-bottom: 20px;
+  margin-top: auto;
+}
+
+/* Button */
+.investButton {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.investButton:hover {
+  background-color: #2ecc71;
+  color: #000; /* Black text on green hover ensures readability */
+}
+
+/* Swiper Override Styles (To customize dots and arrows) */
+.swiperContainer :global(.swiper-pagination-bullet) {
+  background: #555;
+  opacity: 1;
+}
+
+.swiperContainer :global(.swiper-pagination-bullet-active) {
+  background: #2ecc71;
+  width: 20px;
+  border-radius: 4px;
+}
+
+.swiperContainer :global(.swiper-button-next),
+.swiperContainer :global(.swiper-button-prev) {
+  color: #2ecc71;
+  background: rgba(0,0,0,0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+}
+
+.swiperContainer :global(.swiper-button-next:after),
+.swiperContainer :global(.swiper-button-prev:after) {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+  
+  .cardContent {
+    padding: 20px;
+  }
+}

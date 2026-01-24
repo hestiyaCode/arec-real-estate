@@ -1,0 +1,215 @@
+/* Section Setup - Matching Dark Theme */
+.section {
+  background-color: #050505;
+  padding: 120px 20px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* Asymmetric layout looks more artistic */
+  gap: 80px;
+  align-items: start;
+}
+
+/* --- Left Side Styling --- */
+.headerColumn {
+  position: relative;
+}
+
+.iconBadge {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.highlight {
+  color: #2ecc71;
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtle line under 'Questions' */
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(46, 204, 113, 0.2);
+  z-index: -1;
+  transform: skewX(-15deg);
+}
+
+.description {
+  color: #a3a3a3;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.link {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #2ecc71;
+}
+
+/* Artistic Background Blur Element */
+.artisticCircle {
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(46,204,113,0.08) 0%, rgba(0,0,0,0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --- Right Side Styling (FAQ Items) --- */
+.faqColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  padding: 0 30px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.faqItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #333;
+}
+
+/* Active State Design */
+.active {
+  background: linear-gradient(145deg, #111, #0a0a0a);
+  border-color: #2ecc71;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Question Header */
+.questionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.questionText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.active .questionText {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Icon Animation */
+.iconWrapper {
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.active .iconWrapper {
+  color: #2ecc71;
+  transform: rotate(180deg); /* Smooth rotation */
+}
+
+/* --- The Smooth Animation Magic --- */
+.answerWrapper {
+  display: grid;
+  grid-template-rows: 0fr; /* Collapsed state */
+  transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Custom slow ease */
+  opacity: 0;
+}
+
+.active .answerWrapper {
+  grid-template-rows: 1fr; /* Expanded state */
+  opacity: 1;
+  transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  padding-bottom: 30px; /* Space at bottom when open */
+}
+
+.answerInner {
+  overflow: hidden;
+}
+
+.answerText {
+  color: #a3a3a3;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+  padding-right: 20px; /* Readability padding */
+  border-top: 1px solid #222;
+  padding-top: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+  
+  .faqItem {
+    padding: 0 20px;
+  }
+  
+  .questionText {
+    font-size: 1.1rem;
+    padding-right: 15px;
+  }
+}.answerText {
+  /* ...purani properties waise hi rehne dein... */
+  font-size: 16px; 
+  color: #ccc;
+  line-height: 1.6;
+  
+  /* Ye nayi line add karein: */
+  white-space: pre-line; 
+}

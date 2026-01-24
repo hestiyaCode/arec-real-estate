@@ -10,6 +10,12 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // WhatsApp Number Configuration (Bina '+' aur space ke)
+  const whatsappNumber = "919911557887"; 
+  
+  // Pre-filled message (Optional - Jab user chat open karega to ye likha hua aayega)
+  const message = "Hello, I am interested in AREC investment opportunities.";
+
   return (
     <header className={styles.navbar}>
       <div className={styles.container}>
@@ -18,7 +24,7 @@ export default function Header() {
           <div className={styles.logoText}>
             AREC<span className={styles.dot}>.</span>
           </div>
-          <div className={styles.logoSub}>Aakash Real Estate Company</div>
+          {/* <div className={styles.logoSub}>Aakash Real Estate Company</div> */}
         </Link>
 
         {/* Navigation Menu */}
@@ -32,8 +38,8 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" onClick={() => setIsMenuOpen(false)}>
-                Portfolio
+              <Link href="/projects" onClick={() => setIsMenuOpen(false)}>
+                Projects
               </Link>
             </li>
             <li>
@@ -42,7 +48,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/contact-page" onClick={() => setIsMenuOpen(false)}>
                 Contact
               </Link>
             </li>
@@ -52,7 +58,13 @@ export default function Header() {
         {/* Action Button & Toggle */}
         <div className={styles.actions}>
           <div className={styles.headerAction}>
-            <a href="tel:+91XXXXXXXXXX" className={styles.callBtn}>
+            {/* WhatsApp Link Wrapper */}
+            <a 
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
+              className={styles.callBtn}
+              target="_blank"           // Naye tab me open hoga
+              rel="noopener noreferrer" // Security best practice
+            >
               Call Now
             </a>
           </div>
