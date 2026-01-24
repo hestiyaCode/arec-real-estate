@@ -31,7 +31,7 @@ export default function Hero() {
 
     try {
       // API call to your existing backend route
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/heroform", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
