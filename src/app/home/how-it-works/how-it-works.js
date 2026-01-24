@@ -14,9 +14,9 @@ const steps = [
       "Historical rental yield data",
       "Complete legal due diligence reports"
     ],
-    stat: "12% Avg. Yield",
+    
     icon: <Search size={24} />,
-    image: "/property-photo.jpg"
+    image: "/browse and evaluate.jpeg"
   },
   {
     id: 2,
@@ -27,9 +27,9 @@ const steps = [
       "Digital signature integration",
       "Secure payment gateway (UPI/NetBanking)"
     ],
-    stat: "100% Secure",
+    
     icon: <FileSignature size={24} />,
-    image: "/property-photo.jpg"
+    image: "/invest and digitise.jpeg"
   },
   {
     id: 3,
@@ -40,9 +40,9 @@ const steps = [
       "Automated monthly payouts",
       "Quarterly performance reports"
     ],
-    stat: "Monthly Payouts",
+    
     icon: <Coins size={24} />,
-    image: "/property-photo.jpg"
+    image: "/track and earn.jpeg"
   }
 ];
 

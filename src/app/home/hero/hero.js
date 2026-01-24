@@ -71,7 +71,7 @@ export default function Hero() {
       <div className={styles.container}>
         {/* Left Side: Content */}
         <div className={styles.textContent}>
-          <span className={styles.badge}>SEBI Registered REIT Platform</span>
+         
           <h1 className={styles.mainTitle}>
             Invest in India’s <br />
             Growth{" "}
