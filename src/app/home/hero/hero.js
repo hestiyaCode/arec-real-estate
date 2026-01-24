@@ -1,20 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./hero.module.css";
-import { Building2, PieChart, Percent, TrendingUp } from "lucide-react"; // Icons agar use kar rahe hain
-import { toast, Toaster } from 'react-hot-toast'; // Notifications ke liye
+import { Building2, PieChart, Percent, TrendingUp } from "lucide-react"; 
+import { toast, Toaster } from 'react-hot-toast'; 
 
 export default function Hero() {
-  // 1. State Manage kar rahe hain data aur loading status ke liye
   const [formData, setFormData] = useState({
-    username: '',      // Backend schema ke hisaab se
-    phoneNumber: '',   // Backend schema ke hisaab se
-    occupation: ''     // Backend schema ke hisaab se
+    username: '',      
+    phoneNumber: '',   
+    occupation: ''     
   });
 
-  const [status, setStatus] = useState(null); // Loading state
+  const [status, setStatus] = useState(null); 
 
-  // 2. Input Change Handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -23,14 +21,12 @@ export default function Hero() {
     }));
   };
 
-  // 3. Form Submit Handler (API Hit karega)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
     const loadingToast = toast.loading("Submitting details...");
 
     try {
-      // API call to your existing backend route
       const response = await fetch("/api/heroform", {
         method: "POST",
         headers: {
@@ -43,7 +39,7 @@ export default function Hero() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ username: '', phoneNumber: '', occupation: '' }); // Form clear
+        setFormData({ username: '', phoneNumber: '', occupation: '' }); 
         
         toast.success("Request Sent Successfully!", {
           style: {
@@ -70,7 +66,6 @@ export default function Hero() {
 
   return (
     <section className={styles.heroWrapper}>
-      {/* Toast Notification Container */}
       <Toaster position="top-center" />
 
       <div className={styles.container}>
@@ -91,7 +86,7 @@ export default function Hero() {
           <div className={styles.statsRow}>
             <div className={styles.statItem}>
               <div className={styles.iconWrapper}>
-                <Building2 size={28} className={styles.statIcon} />
+                <Building2 size={24} />
               </div>
               <div>
                 <h4>Grade-A</h4>
@@ -100,7 +95,7 @@ export default function Hero() {
             </div>
             <div className={styles.statItem}>
               <div className={styles.iconWrapper}>
-                 <PieChart size={28} className={styles.statIcon} />
+                 <PieChart size={24} />
               </div>
               <div>
                 <h4>90%</h4>
@@ -109,7 +104,7 @@ export default function Hero() {
             </div>
             <div className={styles.statItem}>
               <div className={styles.iconWrapper}>
-                <Percent size={28} className={styles.statIcon} />
+                <Percent size={24} />
               </div>
               <div>
                 <h4>Stable</h4>
@@ -118,7 +113,7 @@ export default function Hero() {
             </div>
             <div className={styles.statItem}>
               <div className={styles.iconWrapper}>
-                <TrendingUp size={28} className={styles.statIcon} />
+                <TrendingUp size={24} />
               </div>
               <div>
                 <h4>Assured</h4>
@@ -128,15 +123,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: Form (API Connected) */}
+        {/* Right Side: Form */}
         <div className={styles.formCard}>
           <h3>Get Started</h3>
           <p>Register your interest for a private walkthrough.</p>
           
           <form onSubmit={handleSubmit}>
             <input
-              type="text"           // HTML type standard rakha hai (text)
-              name="username"       // Backend key match
+              type="text"
+              name="username"
               value={formData.username}
               onChange={handleChange}
               placeholder="Full Name"
@@ -144,8 +139,8 @@ export default function Hero() {
               required
             />
             <input
-              type="tel"            // HTML type standard (tel for mobile)
-              name="phoneNumber"    // Backend key match
+              type="tel"
+              name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
               placeholder="Phone Number"
@@ -153,8 +148,8 @@ export default function Hero() {
               required
             />
             <input
-              type="text"           // HTML type standard (text)
-              name="occupation"     // Backend key match
+              type="text"
+              name="occupation"
               value={formData.occupation}
               onChange={handleChange}
               placeholder="Occupation"

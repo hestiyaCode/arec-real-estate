@@ -15,7 +15,7 @@ export default function Home() {
       <HowItWorks />
       <FAQ/>
       <Footer/>
-      <ContactPage/>
+      
 
 
     </>
