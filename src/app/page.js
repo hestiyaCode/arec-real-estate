@@ -6,15 +6,20 @@ import HowItWorks from "./home/how-it-works/how-it-works";
 import FAQ from "./home/FAQ/faq";
 import Footer from "./home/Footer/Footer";
 import ContactPage from "./contact-page/contactpage";
+import HolidaySlider from "./home/holiday/holiday";
+import CommercialSlider from "./home/commercial/commercial";
 export default function Home() {
   return (
     <>
       <HeroSection />
       <ProjectSlider />
+      <HolidaySlider />
+      <CommercialSlider/>
       <WhyChooseUs />
       <HowItWorks />
       <FAQ/>
       <Footer/>
+      
       
 
 

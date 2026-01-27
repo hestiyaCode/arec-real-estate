@@ -1,6 +1,6 @@
-/* Section Background - Deep Dark matching Hero */
+/* Section Background - Changed to White */
 .section {
-  background-color: #050505;
+  background-color: #ffffff; /* Changed from #050505 to White */
   padding: 100px 20px;
   font-family: 'Inter', sans-serif;
   position: relative;
@@ -20,7 +20,7 @@
 }
 
 .subHeading {
-  color: #2ecc71; /* Your Brand Green */
+  color: #2ecc71; /* Green preserved */
   font-size: 0.85rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -31,19 +31,20 @@
 .heading {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #111111; /* Changed from White to Black */
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .highlight {
-  background: linear-gradient(120deg, #ffffff 0%, #2ecc71 100%);
+  /* Gradient changed to match white bg: Black to Green */
+  background: linear-gradient(120deg, #111111 0%, #2ecc71 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .description {
-  color: #a3a3a3;
+  color: #666666; /* Grey adjusted for white background readability */
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -70,8 +71,8 @@
 
 /* Interactive Card Styling */
 .card {
-  background: rgba(255, 255, 255, 0.03); /* Very subtle glass effect */
-  border: 1px solid #1f1f1f;
+  background: #ffffff; /* Changed to White */
+  border: 1px solid #e5e5e5; /* Light Grey border instead of dark */
   border-radius: 16px;
   padding: 30px 24px;
   position: relative;
@@ -80,30 +81,30 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  group: hover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* Added very subtle shadow */
 }
 
 /* Hover Effect: Lift Up + Green Border + Glow */
 .card:hover {
   transform: translateY(-10px);
-  background: linear-gradient(145deg, #121212, #0a0a0a);
-  border-color: #2ecc71;
-  box-shadow: 0 20px 40px -10px rgba(46, 204, 113, 0.15); /* Soft Green Shadow */
+  background: #ffffff; /* Keep white on hover */
+  border-color: #2ecc71; /* Green Border preserved */
+  box-shadow: 0 20px 40px -10px rgba(46, 204, 113, 0.2); /* Shadow slightly adjusted */
 }
 
 /* Icon Styling */
 .iconWrapper {
-  background-color: #1a1a1a;
+  background-color: #f3f4f6; /* Very light grey bg for icon */
   width: 60px;
   height: 60px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2ecc71;
+  color: #2ecc71; /* Green icon */
   margin-bottom: 24px;
   transition: all 0.3s ease;
-  border: 1px solid #333;
+  border: 1px solid #e5e5e5; /* Light border */
 }
 
 .card:hover .iconWrapper {
@@ -116,13 +117,13 @@
 .cardTitle {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #fff;
+  color: #111111; /* Changed from White to Black */
   margin-bottom: 12px;
 }
 
 .cardDesc {
   font-size: 0.95rem;
-  color: #888;
+  color: #666666; /* Grey text adjusted */
   line-height: 1.6;
 }
 
@@ -133,7 +134,7 @@
   right: 0;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, rgba(46,204,113,0.1) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(46,204,113,0.15) 0%, rgba(255,255,255,0) 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;

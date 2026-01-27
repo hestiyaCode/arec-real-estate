@@ -1,10 +1,10 @@
 /* Base Footer Styles */
 .footer {
-  background-color: #050505; /* Deep black matching hero */
-  color: #ffffff; /* Light grey text for good contrast but not harsh white */
+  background-color: #ffffff; /* Changed to White */
+  color: #111111; /* Changed to Black */
   padding: 80px 20px 40px 20px;
   font-family: 'Inter', sans-serif;
-  border-top: 1px solid #1f1f1f;
+  border-top: 1px solid #e5e5e5; /* Light grey border */
   position: relative;
   overflow: hidden;
 }
@@ -17,7 +17,7 @@
 /* Top Grid Layout */
 .topFooterGrid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr; /* First column slightly wider */
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 60px;
   margin-bottom: 60px;
 }
@@ -32,7 +32,7 @@
 .brandLogoSmall {
   font-size: 1.8rem;
   font-weight: 800;
-  color: #fff;
+  color: #111111; /* Black Logo */
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
@@ -45,6 +45,7 @@
   line-height: 1.6;
   margin-bottom: 25px;
   font-size: 0.95rem;
+  color: #666666; /* Grey text for readability */
 }
 
 .contactItem {
@@ -52,7 +53,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
-  color: #fff;
+  color: #444444; /* Dark grey for contact info */
   font-size: 0.9rem;
 }
 
@@ -64,7 +65,7 @@
 .colHeading {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: #111111; /* Black Heading */
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 24px;
@@ -86,14 +87,14 @@
 
 .linkList li a {
   text-decoration: none;
-  color: #a3a3a3;
+  color: #666666; /* Medium Grey for links */
   transition: all 0.3s ease;
   font-size: 0.95rem;
 }
 
 .linkList li a:hover {
   color: #2ecc71; /* Hover turns Green */
-  padding-left: 5px; /* Subtle shift effect */
+  padding-left: 5px;
 }
 
 /* Social Media Icons */
@@ -109,22 +110,23 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
+  background: #f3f4f6; /* Very light grey background */
+  color: #111; /* Dark icon */
   transition: all 0.3s ease;
-  border: 1px solid #1f1f1f;
+  border: 1px solid #e5e5e5; /* Light border */
 }
 
 .socialLinks a:hover {
   background: #2ecc71;
   color: #000;
   transform: translateY(-3px);
+  border-color: #2ecc71;
 }
 
 /* Divider Line */
 .divider {
   height: 1px;
-  background: #1f1f1f;
+  background: #e5e5e5; /* Light divider */
   margin-bottom: 40px;
 }
 
@@ -132,31 +134,32 @@
 .bottomFooter {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Aligns copyright text with bottom of big logo */
+  align-items: flex-end;
   position: relative;
 }
 
 .copyrightText {
   font-size: 0.9rem;
-  color: #888;
+  color: #666666; /* Readable grey */
 }
 
 /* THE BIG LOGO AT THE END */
 .bigWatermarkLogo {
-  font-size: 8rem; /* Very large size */
+  font-size: 8rem;
   font-weight: 900;
-  /* Changed opacity from 0.03 to 0.2 to make it visible */
-  color: #ffffff; 
+  /* IMPORTANT CHANGE: Color changed to Black with low opacity */
+  color: #000000; 
+  opacity: 1; /* Very subtle watermark effect on white */
   line-height: 0.8;
   letter-spacing: -2px;
-  user-select: none; /* Prevents selection */
-  pointer-events: none; /* Prevents clicking */
+  user-select: none;
+  pointer-events: none;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .topFooterGrid {
-    grid-template-columns: 1fr 1fr; /* 2x2 grid on tablets */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 }
@@ -167,7 +170,7 @@
   }
 
   .topFooterGrid {
-    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-template-columns: 1fr;
     gap: 50px;
   }
 
@@ -183,7 +186,7 @@
   }
 
   .bigWatermarkLogo {
-    font-size: 5rem; /* Smaller on mobile */
-    order: -1; /* Moves logo above copyright on mobile */
+    font-size: 5rem;
+    order: -1;
   }
 }

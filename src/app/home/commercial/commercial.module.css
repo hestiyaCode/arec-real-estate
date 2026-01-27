@@ -1,0 +1,235 @@
+/* Section Base - White Background */
+.section {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  border-top: 1px solid #f0f0f0; /* Subtle separator from previous section */
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+  margin-bottom: 50px;
+  max-width: 800px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #111111; /* Black Text */
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.greenText {
+  color: #2ecc71; /* Brand Green */
+}
+
+.subtitle {
+  color: #666666; /* Grey Text for readability on white */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Slider Layout */
+.sliderWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scrollContainer {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 5px 40px 5px; /* Bottom padding prevents shadow clipping */
+  -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+  scrollbar-width: none;  /* Hide scrollbar Firefox */
+}
+
+/* Hide Scrollbar Chrome/Safari */
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card Styling */
+.card {
+  min-width: 380px;
+  max-width: 380px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5; /* Light border */
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* Very subtle shadow initially */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  border-color: #2ecc71; /* Green border on hover */
+}
+
+/* Image Area */
+.imageWrapper {
+  position: relative;
+  height: 240px;
+  width: 100%;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ffffff;
+  color: #111;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Content Area */
+.content {
+  padding: 24px;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 12px 0;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666666;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.icon {
+  color: #999;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #f0f0f0;
+  margin: 20px 0;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.statValueRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111;
+  font-size: 1.1rem;
+}
+
+.greenIcon {
+  color: #2ecc71;
+}
+
+/* Navigation Buttons */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.navBtn:hover {
+  background: #2ecc71;
+  color: #000;
+  border-color: #2ecc71;
+}
+
+.prevBtn {
+  left: -24px;
+}
+
+.nextBtn {
+  right: -24px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+
+  .card {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .navBtn {
+    display: none; /* Hide buttons on mobile */
+  }
+  
+  .scrollContainer {
+    padding-bottom: 20px;
+  }
+}

@@ -8,7 +8,7 @@ const steps = [
   {
     id: 1,
     title: "Browse & Evaluate",
-    description: "Access our curated list of Grade-A commercial assets. We filter through hundreds of properties to bring you the top 1% with high growth potential.",
+    description: "Access our curated list of Grade-A assets. We filter through hundreds of properties to bring you the top 1% with high growth potential.",
     features: [
       "AI-driven location analysis",
       "Historical rental yield data",

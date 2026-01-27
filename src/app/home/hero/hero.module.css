@@ -4,13 +4,14 @@
   min-height: calc(100vh - 70px);
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.92) 20%, rgba(0, 0, 0, 0.6) 100%), 
+  /* Changed gradient to White overlay so text is readable */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.7) 100%), 
               url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  padding: 40px 0; /* Vertical padding added for safety */
+  padding: 40px 0;
 }
 
 .container {
@@ -18,7 +19,7 @@
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* Desktop: 2 Columns */
+  grid-template-columns: 1.1fr 0.9fr; 
   gap: 60px;
   align-items: center;
   position: relative;
@@ -30,20 +31,20 @@
 }
 
 .badge {
-  color: var(--accent-green, #22c55e); /* Fallback color added */
+  color: var(--accent-green, #22c55e); 
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 15px;
   display: inline-block;
-  background: rgba(34, 197, 94, 0.1);
+  background: rgba(34, 197, 94, 0.1); /* Light green bg fits well on white too */
   padding: 6px 12px;
   border-radius: 4px;
 }
 
 .mainTitle {
-  color: #ffffff;
+  color: #111111; /* Changed from White to Black */
   font-size: 52px;
   font-weight: 900;
   line-height: 1.1;
@@ -55,7 +56,7 @@
 }
 
 .subTitle {
-  color: #d4d4d4;
+  color: #666666; /* Grey darkened for visibility on white */
   font-size: 18px;
   line-height: 1.6;
   margin-top: 20px;
@@ -69,7 +70,7 @@
   gap: 20px;
   margin-top: 40px;
   padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #e5e5e5; /* Changed from transparent white to light grey */
 }
 
 .statItem {
@@ -90,7 +91,7 @@
 }
 
 .statItem h4 {
-  color: #ffffff;
+  color: #111111; /* Black text */
   font-size: 20px;
   font-weight: 800;
   margin: 0;
@@ -98,44 +99,42 @@
 }
 
 .statItem p {
-  color: #a3a3a3;
+  color: #666666; /* Readable Grey */
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-top: 4px;
 }
 
-/* Glassmorphism Form */
+/* Glassmorphism Form - Adapted for White Theme */
 .formCard {
-  background: rgba(20, 20, 20, 0.6); /* Darker background for readability */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #ffffff; /* Solid white background */
   padding: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #e5e5e5; /* Light border */
   border-radius: 12px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .formCard h3 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #fff;
+  color: #111111; /* Black text */
 }
 
 .formCard p {
-  color: #a3a3a3;
+  color: #666666; /* Grey text */
   font-size: 14px;
   margin-bottom: 30px;
 }
 
 .inputField {
   width: 100%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f3f4f6; /* Very light grey input background */
+  border: 1px solid #e5e5e5;
   border-radius: 6px;
   padding: 14px 16px;
-  color: #fff;
+  color: #111; /* Black text inside input */
   font-size: 16px;
   margin-bottom: 15px;
   outline: none;
@@ -144,13 +143,13 @@
 
 .inputField:focus {
   border-color: var(--accent-green, #22c55e);
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff; /* White on focus */
 }
 
 .submitBtn {
   width: 100%;
   background-color: var(--accent-green, #22c55e);
-  color: #000; /* Better contrast */
+  color: #000; 
   padding: 16px;
   border: none;
   border-radius: 6px;
@@ -177,7 +176,7 @@
   }
 
   .container {
-    grid-template-columns: 1fr; /* Stack vertically */
+    grid-template-columns: 1fr; 
     gap: 50px;
     width: 90%;
   }
@@ -194,7 +193,7 @@
 
   .statsRow {
     justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
     gap: 30px;
   }
 }
@@ -202,7 +201,7 @@
 /* Mobile Devices (Max Width: 768px) */
 @media (max-width: 768px) {
   .heroWrapper {
-    background-position: 65% center; /* Shift image to show more detail */
+    background-position: 65% center; 
     padding: 40px 0;
   }
 
@@ -216,7 +215,7 @@
   }
 
   .mainTitle {
-    font-size: 32px; /* Smaller font for mobile */
+    font-size: 32px; 
     line-height: 1.2;
   }
 
@@ -228,16 +227,16 @@
   /* Stats Grid for Mobile */
   .statsRow {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 items per row */
+    grid-template-columns: 1fr 1fr; 
     gap: 20px;
     margin-top: 30px;
     padding-top: 20px;
   }
 
   .statItem {
-    flex-direction: column; /* Stack icon and text */
+    flex-direction: column; 
     text-align: center;
-    background: rgba(255,255,255,0.03);
+    background: #f9f9f9; /* Changed from transparent white to light grey for mobile box */
     padding: 15px;
     border-radius: 8px;
   }
@@ -253,7 +252,7 @@
 
   /* Form Adjustments */
   .formCard {
-    padding: 25px; /* Reduce padding */
+    padding: 25px; 
   }
 
   .formCard h3 {

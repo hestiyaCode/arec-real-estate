@@ -13,16 +13,16 @@ const faqData = [
     answer: "We welcome institutional investors, HNIs, NRIs, and eligible retail investors with minimum investment thresholds. NRIs may invest through designated NRO/NRE accounts."
   },
   {
-    question: "What are the minimum investments?",
-    answer: "Per SEBI SM-REIT rules, minimum tickets typically start at ₹10 lakh for retail/HNI investors and higher for institutional placements."
+    question: "What is a token and how it works?",
+    answer: "A Token- is a fraction of the total value of the asset. We break the asset into tokens, which can be purchased through our platform. The owner gets the benefits of income generated and value appreciation."
   },
   {
     question: "How are returns paid?",
-    answer: "We distribute at least 90% of net rental income to unit-holders (e.g., quarterly dividends). Past distributions have averaged X% annually."
+    answer: "We distribute at least 90% of net rental income to unit-holders, they can choose from monthly and quarterly payments."
   },
   {
     question: "Liquidity of investment?",
-    answer: "Our REIT units will be listed on the stock exchange (once public) for secondary market trading. Prior to listing, investors exit via secondary placement or buyout mechanisms."
+    answer: "Once a token is purchased, the owner can sell it at any time they want. The token can be listed again on the platform after the owners written consent."
   },
   {
     question: "What are the risks?",
@@ -30,16 +30,16 @@ const faqData = [
   },
   {
     question: "Tax implications?",
-    answer: "Rental income distributions are taxed per SEBI/IT rules. NRIs consult tax advisors for repatriation. Consult a tax professional for specifics."
+    answer: "Rental income distributions are taxed as per Indian Income Tax rules. NRIs consult tax advisors for repatriation. Consult a tax professional for specifics."
   },
   {
     question: "How to Invest?",
-    answer: `• Step 1: Open an Account – Potential investors register on the platform or contact a Relationship Manager. SEBI mandate: Min. investment ₹10 lakh.
+    answer: `• Step 1: Open an Account – Potential investors register on the platform or contact a Relationship Manager.
 • Step 2: Complete KYC & Documentation – Submit KYC, identity proofs. NRIs can invest via NRO/NRE accounts.
-• Step 3: Choose Your Investment Plan – Select from available tranche (institutional placement or upcoming public offer).
-• Step 4: Fund Transfer – Invest via wire transfer or cheque into designated bank account.
-• Step 5: Unit Allotment – Receive REIT units; holdings can be tracked online.
-• Step 6: Earn Income – Quarterly distributions credited directly to investors; annual reports shared.`
+• Step 3: Choose Your Investment – Select from listed projects based on location, asset type, yield, and tenure.
+• Step 4: Fund Transfer – Invest via bank transfer or cheque into designated bank account.
+• Step 5: Unit Allotment – Ownership transferred to user, holdings can be tracked online.
+• Step 6: Earn Income – Monthly or quarterly distributions credited directly to investors; annual reports shared.`
   }
 ];
 

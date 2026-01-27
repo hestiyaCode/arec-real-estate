@@ -27,7 +27,7 @@ const Footer = () => {
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <Mail size={16} className={styles.icon} />
-                <span>hello@arec.in</span>
+                <span>hello@arec.com</span>
               </div>
               <div className={styles.contactItem}>
                 <Phone size={16} className={styles.icon} />

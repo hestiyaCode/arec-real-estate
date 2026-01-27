@@ -13,13 +13,13 @@ const features = [
   {
     id: 2,
     title: "Transparency & Trust",
-    description: "We operate with complete clarity. Regular reports, clear fee structures, and SEBI-compliant processes ensure your peace of mind.",
+    description: "We operate with complete clarity. Regular reports, clear fee structures and management by AREC ensures your peace of mind.",
     icon: <ShieldCheck size={32} />,
   },
   {
     id: 3,
     title: "Expert-Vetted Projects",
-    description: "Our team of analysts rigorously screens hundreds of properties to bring you only the top 1% institutional-grade assets.",
+    description: "Our team of analysts rigorously screens hundreds of properties to bring you only the top 1% assets.",
     icon: <Award size={32} />,
   },
   {
