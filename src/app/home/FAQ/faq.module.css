@@ -61,7 +61,31 @@
   z-index: -1;
   transform: skewX(-15deg);
 }
+.buttonContainer {
+  margin-top: 25px;
+  position: relative; /* Ensures it sits above background elements */
+  z-index: 5;
+}
 
+.contactButton {
+  display: inline-block;
+  background-color: #22c55e;
+  color: #ffffff !important; /* Force white text */
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #22c55e;
+  cursor: pointer;
+}
+
+.contactButton:hover {
+  background-color: transparent;
+  color: #22c55e !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(34, 197, 94, 0.3);
+}
 .description {
   color: #666666; /* Grey darkened for white background */
   font-size: 1.1rem;

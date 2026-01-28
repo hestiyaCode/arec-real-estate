@@ -1,239 +1,38 @@
-/* Color variables matching the theme */
-:root {
-  --primary-green: #22c55e; /* Adjust this green to match exactly if needed */
-  --dark-bg: #0a0a0a;
-  --light-text: #ffffff;
-  --gray-text: #a3a3a3;
-  --input-border: #404040;
-}
+/* =========================================
+   COMPLETE CONTACT PAGE CSS (LIGHT THEME)
+   ========================================= */
 
-.pageWrapper {
-  position: relative;
-  min-height: 100vh;
-  background-color: var(--dark-bg);
-  /* Agar aapke paas wahi office wali background image hai, to use yahan lagayein: */
-  /* background-image: url('/path-to-your-bg-image.jpg'); */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  color: var(--light-text);
-  font-family: sans-serif; /* Ensure you use the same font family as your main site */
-}
-
-/* Adds a dark overlay so text pops over the background image */
-.bgOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Darkens the background image */
-  z-index: 0;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4rem;
-}
-
-/* Header Content (Left side on large screens) */
-.headerContent {
-  flex: 1 1 400px;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.greenText {
-  color: var(--primary-green);
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: var(--gray-text);
-  line-height: 1.6;
-  max-width: 500px;
-}
-
-/* Form Card Style - The transparent glass look */
-.formCard {
-  flex: 1 1 450px;
-  max-width: 500px;
-  /* Semi-transparent dark background similar to the image's form */
-  background: rgba(25, 25, 25, 0.6);
-  backdrop-filter: blur(10px); /* Gives the frosted glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 3rem;
-  border-radius: 4px;
-}
-
-.formTitle {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.formSubtitle {
-  color: var(--gray-text);
-  margin-bottom: 2.5rem;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Input styles to match the reference image */
-.inputGroup {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.inputIcon {
-  position: absolute;
-  left: 0;
-  color: var(--gray-text);
-  /* Hide icon if you want exactly like image without icons */
-  /* display: none; */ 
-}
-
-.inputField {
-  width: 100%;
-  background: transparent;
-  border: none;
-  /* Only bottom border, like in the image */
-  border-bottom: 1px solid var(--input-border);
-  padding: 1rem 0 1rem 2.5rem; /* Padding left for icon space */
-  color: var(--light-text);
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-  border-radius: 0; /* Removes default border radius */
-}
-
-/* If you remove icons, adjust padding */
-/* .inputField { padding: 1rem 0; } */
-
-
-.inputField::placeholder {
-  color: #666;
-}
-
-.inputField:focus {
-  outline: none;
-  border-bottom-color: var(--primary-green); /* Green highlight on focus */
-}
-
-/* Button Style - Solid green, uppercase */
-.submitBtn {
-  background-color: var(--primary-green);
-  color: var(--light-text);
-  border: none;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1rem;
-  border-radius: 2px;
-}
-
-.submitBtn:hover {
-  background-color: #1ca54f; /* Slightly darker green on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .headerContent {
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .formCard {
-    width: 100%;
-    padding: 2rem;
-  }
-}
-/* Color variables matching the theme */
 :root {
   --primary-green: #22c55e;
-  --dark-bg: #0a0a0a;
-  --light-text: #ffffff;
+  --white-bg: #ffffff;
+  --black-text: #000000;
   --gray-text: #a3a3a3;
-  --input-border: #404040;
+  --input-border: #e5e5e5;
+  --card-shadow: rgba(0, 0, 0, 0.08);
 }
 
-/* Animations Define Kar Rahe Hain */
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px); /* Upar se shuru hoga */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Apni jagah par aayega */
-  }
-}
-
-@keyframes slideRight {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px); /* Left side se shuru hoga */
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0); /* Apni jagah par aayega */
-  }
-}
-
+/* Base Wrapper */
 .pageWrapper {
   position: relative;
   min-height: 100vh;
-  background-color: var(--dark-bg);
-  /* background-image: url('/your-bg.jpg'); */
-  background-size: cover;
-  background-position: center;
+  background-color: var(--white-bg);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  color: var(--light-text);
-  font-family: sans-serif;
-  overflow: hidden; /* Scrollbar avoid karne ke liye animation ke dauran */
+  color: var(--black-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
 }
 
+/* Background Overlay (Subtle tint for white theme) */
 .bgOverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.5);
   z-index: 0;
 }
 
@@ -249,12 +48,11 @@
   gap: 4rem;
 }
 
-/* Header Content - Animation Applied Here */
+/* --- LEFT SIDE: HEADER CONTENT --- */
 .headerContent {
   flex: 1 1 400px;
-  opacity: 0; /* Initially hidden avoid flicker */
-  /* Animation: Slide Down over 1 second */
-  animation: slideDown 1s ease-out forwards; 
+  opacity: 0;
+  animation: slideDown 1s ease-out forwards;
 }
 
 .title {
@@ -262,6 +60,7 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  color: var(--black-text);
 }
 
 .greenText {
@@ -275,30 +74,30 @@
   max-width: 500px;
 }
 
-/* Form Card - Animation Applied Here */
+/* --- RIGHT SIDE: FORM CARD --- */
 .formCard {
   flex: 1 1 450px;
   max-width: 500px;
-  background: rgba(25, 25, 25, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
   padding: 3rem;
-  border-radius: 4px;
-
-  opacity: 0; /* Initially hidden */
-  /* Animation: Slide Right, starts after 0.3s delay for smooth effect */
-  animation: slideRight 1s ease-out 0.3s forwards; 
+  border-radius: 12px;
+  box-shadow: 0 20px 40px var(--card-shadow);
+  opacity: 0;
+  animation: slideRight 1s ease-out 0.3s forwards;
 }
 
 .formTitle {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--black-text);
 }
 
 .formSubtitle {
   color: var(--gray-text);
   margin-bottom: 2.5rem;
+  font-size: 0.95rem;
 }
 
 .form {
@@ -307,6 +106,7 @@
   gap: 1.5rem;
 }
 
+/* Input Fields */
 .inputGroup {
   position: relative;
   display: flex;
@@ -325,14 +125,14 @@
   border: none;
   border-bottom: 1px solid var(--input-border);
   padding: 1rem 0 1rem 2.5rem;
-  color: var(--light-text);
+  color: var(--black-text);
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   border-radius: 0;
 }
 
 .inputField::placeholder {
-  color: #666;
+  color: #cccccc;
 }
 
 .inputField:focus {
@@ -340,29 +140,57 @@
   border-bottom-color: var(--primary-green);
 }
 
+/* Submit Button */
 .submitBtn {
   background-color: var(--primary-green);
-  color: var(--light-text);
+  color: #ffffff; /* Text remains white on green button */
   border: none;
-  padding: 1rem;
+  padding: 1.2rem;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   margin-top: 1rem;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 .submitBtn:hover {
   background-color: #1ca54f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
 }
 
+/* --- ANIMATIONS --- */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
     gap: 3rem;
+    padding-top: 2rem;
   }
 
   .headerContent {
@@ -371,6 +199,10 @@
   
   .title {
     font-size: 2.5rem;
+  }
+
+  .subtitle {
+    margin: 0 auto;
   }
 
   .formCard {

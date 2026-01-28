@@ -1,8 +1,9 @@
 'use client';
 import React, { useRef } from 'react';
+import Link from 'next/link'; // Added Link for navigation
 import styles from './holiday.module.css';
 
-// Mock Data for Holiday Homes (You can replace image URLs with your local imports)
+// Mock Data for Holiday Homes
 const holidayProjects = [
   {
     id: 1,
@@ -10,7 +11,7 @@ const holidayProjects = [
     location: "Rishikesh, Uttarakhand",
     type: "Hill Station Villa",
     status: "New Launch",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?q=80&w=1974&auto=format&fit=crop", // Replace with your image
+    image: "/hills-villa.jpg",
     yield: "8.5%",
     price: "₹1.5 Cr",
     units: "12/20",
@@ -34,7 +35,7 @@ const holidayProjects = [
     location: "Coorg, Karnataka",
     type: "Estate Cottage",
     status: "Waitlist",
-    image: "https://images.unsplash.com/photo-1600596542815-e328d4de4bf7?q=80&w=2009&auto=format&fit=crop",
+    image: "/valleyyy-cottage.jpg",
     yield: "7.8%",
     price: "₹95 Lakhs",
     units: "18/25",
@@ -152,6 +153,13 @@ const HolidaySlider = () => {
                          <strong>{project.totalVal}</strong>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Added Invest Now Button */}
+                  <div className={styles.buttonWrapper}>
+                    <Link href="/contact-page" className={styles.investButton}>
+                      Invest Now
+                    </Link>
                   </div>
 
                 </div>

@@ -1,8 +1,9 @@
 'use client';
 import React, { useRef } from 'react';
+import Link from 'next/link'; // Import Link for navigation
 import styles from './commercial.module.css';
 
-// Mock Data for Commercial Projects
+// Updated Mock Data with high-quality, relevant images
 const commercialProjects = [
   {
     id: 1,
@@ -10,7 +11,8 @@ const commercialProjects = [
     location: "Moradabad City, Uttar Pradesh",
     type: "Retail Plaza- Income Starts from Day 1",
     status: "New Launch",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", 
+    // Relevant high-quality retail/shopping mall image
+    image: "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?q=80&w=2070&auto=format&fit=crop", 
     yield: "12.1%",
     price: "₹25 Lakhs",
     units: "20/20",
@@ -22,7 +24,8 @@ const commercialProjects = [
     location: "Sector 18, Noida",
     type: "Premium Retail Shop",
     status: "Selling Fast",
-    image: "https://images.unsplash.com/photo-1519567241046-7f570eee3d9f?q=80&w=2070&auto=format&fit=crop",
+    // Modern High-street architecture image
+    image: "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=2070&auto=format&fit=crop",
     yield: "10.5%",
     price: "₹1.2 Cr",
     units: "15/50",
@@ -34,7 +37,8 @@ const commercialProjects = [
     location: "Whitefield, Bangalore",
     type: "Managed Workspace",
     status: "New Launch",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+    // Modern co-working/office interior
+    image: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=2070&auto=format&fit=crop",
     yield: "9.2%",
     price: "₹65 Lakhs",
     units: "22/40",
@@ -46,7 +50,8 @@ const commercialProjects = [
     location: "Bhiwandi, Mumbai",
     type: "Industrial Warehouse",
     status: "High Demand",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    // Modern industrial warehouse image
+    image: "/logistics.jpg",
     yield: "7.5%",
     price: "₹2.5 Cr",
     units: "02/08",
@@ -80,7 +85,7 @@ const CommercialSlider = () => {
           </h2>
           <p className={styles.subtitle}>
             Secure steady rental income and capital appreciation with A-grade 
-            commercial real estate. Invest in offices, retail spaces, , high street markets and malls.
+            commercial real estate. Invest in offices, retail spaces, high street markets and malls.
           </p>
         </div>
 
@@ -121,7 +126,6 @@ const CommercialSlider = () => {
 
                   {/* Stats Grid */}
                   <div className={styles.statsGrid}>
-                    
                     <div className={styles.statBox}>
                       <span className={styles.statLabel}>Target Yield</span>
                       <div className={styles.statValueRow}>
@@ -153,7 +157,13 @@ const CommercialSlider = () => {
                          <strong>{project.totalVal}</strong>
                       </div>
                     </div>
+                  </div>
 
+                  {/* Invest Now Button */}
+                  <div className={styles.buttonWrapper}>
+                    <Link href="/contact" className={styles.investButton}>
+                      Invest Now
+                    </Link>
                   </div>
 
                 </div>

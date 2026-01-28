@@ -87,7 +87,7 @@
 
 .linkList li a {
   text-decoration: none;
-  color: #666666; /* Medium Grey for links */
+  color: #000000; /* Medium Grey for links */
   transition: all 0.3s ease;
   font-size: 0.95rem;
 }

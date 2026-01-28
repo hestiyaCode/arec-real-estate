@@ -129,9 +129,7 @@ const HowItWorks = () => {
                     ))}
                   </ul>
 
-                  <button className={styles.actionLink}>
-                    Learn More <ArrowRight size={16} />
-                  </button>
+                  
                 </div>
               </div>
             ))}
