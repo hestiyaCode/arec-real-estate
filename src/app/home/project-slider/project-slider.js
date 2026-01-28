@@ -34,11 +34,11 @@ const projects = [
     location: "Sector 34, Noida",
     type: "Commercial Retail",
     yield: "9.2%",
-    minInvest: "₹50 Lakhs",
+    minInvest: "₹1 Crore",
     image: "/prime-mark.jpeg",
     status: "Filling Fast",
     totalPrice: "₹50 Crores",
-    availableUnits: "98/100",
+    availableUnits: "48/50",
   },
   {
     id: 3,
@@ -88,7 +88,7 @@ const ProjectSlider = () => {
           </h2>
           <p className={styles.description}>
             We offer institutional-grade real estate investments across commercial, residential and holiday home sectors. 
-            Our platform for HNIs, NRIs, and retail investors to earn steady capital appreciation and rental
+            Our platform enables retail investors to earn steady capital appreciation and rental
             income.
           </p>
         </div>
@@ -171,7 +171,7 @@ const ProjectSlider = () => {
                       <div className={styles.statItem}>
                         <Wallet size={18} className={styles.accentIcon} />
                         <div>
-                          <span className={styles.statLabel}>Unit Price</span>
+                          <span className={styles.statLabel}>Token Price</span>
                           <span className={styles.statValue}>{project.minInvest}</span>
                         </div>
                       </div>

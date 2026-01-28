@@ -38,8 +38,18 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link href="/How-it-works-page" onClick={() => setIsMenuOpen(false)}>
+                How It Works
+              </Link>
+            </li>
+            <li>
               <Link href="/projects" onClick={() => setIsMenuOpen(false)}>
                 Projects
+              </Link>
+            </li>
+            <li>
+              <Link href="/InsightsAndBlogsPage" onClick={() => setIsMenuOpen(false)}>
+                Insights & Blogs
               </Link>
             </li>
             <li>
@@ -52,6 +62,7 @@ export default function Header() {
                 Contact
               </Link>
             </li>
+
           </ul>
         </nav>
 

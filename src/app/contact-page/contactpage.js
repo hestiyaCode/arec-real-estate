@@ -93,7 +93,7 @@ const ContactPage = () => {
           <p className={styles.subtitle}>
             Interested in institutional-grade real estate opportunities? 
             Fill out the form and our team will reach out to you regarding 
-            investments, portfolio management, and upcoming SM-REIT offers.
+            investments, portfolio management and other interesting offers.
           </p>
         </div>
 

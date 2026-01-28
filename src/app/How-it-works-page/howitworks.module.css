@@ -1,0 +1,123 @@
+/* NEW: This covers the entire screen width */
+.pageWrapper {
+  width: 100%;
+  background-color: #ffffff; /* Forced White Background for whole page */
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #000000; /* Solid Black Font */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.header h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #27ae60; /* Brand Green */
+  margin-bottom: 10px;
+}
+
+.header p.subtitle {
+  font-size: 1.25rem;
+  color: #000000; /* Solid Black */
+  font-weight: 500;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.badge {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #27ae60;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  border: 1px solid #27ae60;
+}
+
+.content {
+  flex: 1;
+}
+
+.content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #000000; /* Solid Black */
+}
+
+.content p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #000000; /* Solid Black */
+  margin-bottom: 20px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.features li {
+  margin-bottom: 12px;
+  padding-left: 30px;
+  position: relative;
+  font-weight: 500;
+  color: #000000; /* Solid Black */
+}
+
+.features li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #27ae60; /* Green Checkmarks */
+  font-weight: bold;
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eeeeee;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .section, .reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .features li {
+    display: block;
+    text-align: left;
+    max-width: fit-content;
+    margin: 10px auto;
+  }
+}
