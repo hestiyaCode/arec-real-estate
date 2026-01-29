@@ -9,6 +9,7 @@
   --gray-text: #a3a3a3;
   --input-border: #e5e5e5;
   --card-shadow: rgba(0, 0, 0, 0.08);
+  
 }
 
 /* Base Wrapper */
@@ -239,7 +240,7 @@
 }
 
 .link {
-  color: inherit;
+  color: #a3a3a3 !important;
   text-decoration: none;
   transition: color 0.3s ease;
 }

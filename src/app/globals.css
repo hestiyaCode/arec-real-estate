@@ -21,6 +21,12 @@
   --border-subtle: rgba(255, 255, 255, 0.1);
   --nav-height: 80px; /* Thoda sleek height */
 }
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: #ffffff;
+}
 
 body {
   background-color: var(--bg-pure);
