@@ -59,7 +59,7 @@ const HowItWorksarec = () => {
           </div>
           <div className={styles.imageContainer}>
             <img 
-              src="https://images.unsplash.com/photo-1460472178825-e5240623abe5?auto=format&fit=crop&w=800&q=80" 
+              src="/10092.jpg" 
               alt="City Architecture" 
               className={styles.image}
             />

@@ -1,93 +1,51 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import styles from "./header.module.css";
+import styles from './header.module.css';
+import { ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // WhatsApp Number Configuration (Bina '+' aur space ke)
-  const whatsappNumber = "919911557887"; 
-  
-  // Pre-filled message (Optional - Jab user chat open karega to ye likha hua aayega)
-  const message = "Hello, I am interested in AREC investment opportunities.";
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className={styles.navbar}>
       <div className={styles.container}>
-        {/* Branding Area */}
-        <Link href="/" className={styles.logoLink}>
-          <div className={styles.logoText}>
-            AREC<span className={styles.dot}>.</span>
-          </div>
-          {/* <div className={styles.logoSub}>Aakash Real Estate Company</div> */}
+        <Link href="/" className={styles.logoLink} onClick={closeMenu}>
+          <div className={styles.logoText}>AREC<span className={styles.dot}>.</span></div>
         </Link>
 
-        {/* Navigation Menu */}
-        <nav
-          className={`${styles.navMenu} ${isMenuOpen ? styles.menuActive : ""}`}
-        >
+        <nav className={`${styles.navMenu} ${isMenuOpen ? styles.menuActive : ""}`}>
           <ul>
-            <li>
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/How-it-works-page" onClick={() => setIsMenuOpen(false)}>
-                How It Works
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" onClick={() => setIsMenuOpen(false)}>
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="/InsightsAndBlogsPage" onClick={() => setIsMenuOpen(false)}>
-                Insights & Blogs
-              </Link>
-            </li>
-            <li>
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact-page" onClick={() => setIsMenuOpen(false)}>
-                Contact
-              </Link>
+            <li><Link href="/" onClick={closeMenu}>Home</Link></li>
+            <li><Link href="/How-it-works-page" onClick={closeMenu}>How It Works</Link></li>
+
+            <li className={styles.dropdownItem}>
+              <div className={styles.menuTitle}>
+                Projects <ChevronDown size={14} className={styles.chevron} />
+              </div>
+              <ul className={styles.dropdownMenu}>
+                <li><Link href="/projects/holiday-homes" onClick={closeMenu}>Holiday Homes</Link></li>
+                <li><Link href="/projects/commercial" onClick={closeMenu}>Commercial Properties</Link></li>
+                <li><Link href="/premiumProperties" onClick={closeMenu}>Premium Properties</Link></li>
+              </ul>
             </li>
 
+            <li><Link href="/InsightsAndBlogsPage" onClick={closeMenu}>Insights & Blogs</Link></li>
+            <li><Link href="/aboutUs" onClick={closeMenu}>About Us</Link></li>
+            <li><Link href="/contact-page" onClick={closeMenu}>Contact</Link></li>
+            <li><Link href="/premiumProperties" onClick={closeMenu}>Premium Properties</Link></li>
           </ul>
         </nav>
 
-        {/* Action Button & Toggle */}
         <div className={styles.actions}>
           <div className={styles.headerAction}>
-            {/* WhatsApp Link Wrapper */}
-            <a 
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
-              className={styles.callBtn}
-              target="_blank"           // Naye tab me open hoga
-              rel="noopener noreferrer" // Security best practice
-            >
-              Call Now
-            </a>
+             <Link href="/contact-page" className={styles.callBtn}>CALL NOW</Link>
           </div>
-
-          <button
-            className={`${styles.mobileToggle} ${isMenuOpen ? styles.toggleOpen : ""}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
+          <button className={styles.mobileToggle} onClick={toggleMenu}>
+            <span></span><span></span><span></span>
           </button>
         </div>
       </div>

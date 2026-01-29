@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import styles from './contactpage.module.css';
-import { toast, Toaster } from 'react-hot-toast'; // 1. Import Toast
+import { toast, Toaster } from 'react-hot-toast';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +24,6 @@ const ContactPage = () => {
     e.preventDefault();
     setStatus("loading");
 
-    // Loading toast start kar sakte hain (Optional)
     const loadingToast = toast.loading("Submitting your application...");
 
     try {
@@ -36,52 +35,37 @@ const ContactPage = () => {
         body: JSON.stringify(formData),
       });
 
-      // Loading toast ko hata dein response aane par
       toast.dismiss(loadingToast);
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ username: '', phoneNumber: '', occupation: '' }); // Form clear
+        setFormData({ username: '', phoneNumber: '', occupation: '' }); 
         
-        // 2. Success Toast
         toast.success("Application Submitted Successfully!", {
           duration: 4000,
           style: {
             background: '#333',
             color: '#fff',
-            border: '1px solid #22c55e', // Green border matching your theme
+            border: '1px solid #22c55e',
           },
         });
         
       } else {
         setStatus("error");
-        // 3. Error Toast
-        toast.error("Something went wrong. Please try again.", {
-          style: {
-            background: '#333',
-            color: '#fff',
-          }
-        });
+        toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
       console.error(error);
       toast.dismiss(loadingToast);
       setStatus("error");
-      toast.error("Server Error! Check connection.", {
-          style: {
-            background: '#333',
-            color: '#fff',
-          }
-      });
+      toast.error("Server Error! Check connection.");
     }
   };
 
   return (
     <div className={styles.pageWrapper}>
-      {/* 4. Toaster Component Add Karein */}
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* Background Overlay */}
       <div className={styles.bgOverlay}></div>
 
       <div className={styles.container}>
@@ -95,6 +79,23 @@ const ContactPage = () => {
             Fill out the form and our team will reach out to you regarding 
             investments, portfolio management and other interesting offers.
           </p>
+
+          {/* --- NEW CONTACT DETAILS SECTION --- */}
+          <div className={styles.contactInfo}>
+            <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>Address:</span>
+              <p>B69, Ground floor Sector 63, Noida, Uttar Pradesh 201301</p>
+            </div>
+            <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>Phone:</span>
+              <p><a href="tel:+919911557887" className={styles.link}>+91 9911557887</a></p>
+            </div>
+            <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>Email:</span>
+              <p><a href="mailto:hello@thearec.com" className={styles.link}>hello@thearec.com</a></p>
+            </div>
+          </div>
+          {/* ---------------------------------- */}
         </div>
 
         {/* Right Side: Form */}
@@ -103,7 +104,6 @@ const ContactPage = () => {
           <p className={styles.formSubtitle}>Provide your details to proceed.</p>
 
           <form onSubmit={handleSubmit} className={styles.form}>
-            
             <div className={styles.inputGroup}>
               <input
                 type="text"
@@ -143,7 +143,6 @@ const ContactPage = () => {
             <button type="submit" className={styles.submitBtn} disabled={status === "loading"}>
               {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
             </button>
-            
           </form>
         </div>
       </div>
