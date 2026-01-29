@@ -1,4 +1,4 @@
-/* Navbar Container */
+/* --- Global Navbar Styles --- */
 .navbar {
   background-color: #000000 !important;
   height: 80px;
@@ -23,12 +23,19 @@
 .logoText { color: #ffffff !important; font-size: 30px; font-weight: 800; text-decoration: none !important; }
 .dot { color: #27ae60; }
 
-.navMenu ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; align-items: center; }
+.navMenu ul { 
+  display: flex; 
+  list-style: none; 
+  gap: 20px; /* Links badhne ki wajah se gap thoda kam kiya h */
+  margin: 0; 
+  padding: 0; 
+  align-items: center; 
+}
 
 .navMenu a {
   color: #ffffff !important;
   text-decoration: none !important;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   transition: 0.3s;
@@ -40,218 +47,8 @@
   opacity: 1;
 }
 
-/* --- Dropdown Logic --- */
-.dropdown {
-  position: relative; /* Base for absolute positioning */
-}
-
-.arrow {
-  font-size: 9px;
-  margin-left: 4px;
-  transition: 0.3s;
-}
-
-.dropdownContent {
-  display: none; /* Initially Hidden */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #111111;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
-  z-index: 100;
-  padding: 10px 0 !important;
-  border: 1px solid rgba(255,255,255,0.1);
-  flex-direction: column !important; /* Stack links vertically */
-  gap: 0 !important;
-}
-
-/* Show on Hover */
-.dropdown:hover .dropdownContent {
-  display: flex !important;
-}
-
-.dropdownContent li {
-  width: 100%;
-}
-
-.dropdownContent a {
-  padding: 12px 20px !important;
-  width: 100%;
-  display: block;
-  text-transform: capitalize; /* Sub-menu looks better in capitalize */
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.dropdownContent li:last-child a {
-  border-bottom: none;
-}
-
-/* Call Button */
-.callBtn { border: 1px solid #27ae60; padding: 10px 24px; color: #fff !important; font-size: 11px; font-weight: 700; text-decoration: none !important; }
-
-/* Mobile Toggle */
-.mobileToggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.mobileToggle span {
-  width: 25px;
-  height: 2px;
-  background-color: #ffffff;
-}
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 991px) {
-  .mobileToggle { display: flex; }
-  
-  .navMenu {
-    position: fixed;
-    top: 80px;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: #000;
-    transition: 0.4s;
-    padding: 20px;
-    display: block;
-    overflow-y: auto;
-  }
-  
-  .menuActive { right: 0; }
-  
-  .navMenu ul { flex-direction: column; align-items: flex-start; gap: 20px; }
-
-  /* Mobile Dropdown adjustment */
-  .dropdownContent {
-    position: static;
-    display: block !important; /* Mobile pe list ke niche hi dikhega */
-    background: transparent;
-    box-shadow: none;
-    border: none;
-    padding-left: 15px !important;
-  }
-  
-  .arrow { display: none; }
-}
-/* Projects Label Styling */
-.dropLabel {
-  color: #ffffff !important;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  opacity: 0.8;
-  cursor: pointer; /* Clickable hand icon dikhega */
-  display: flex;
-  align-items: center;
-  transition: 0.3s;
-}
-
-.dropdown:hover .dropLabel {
-  color: #27ae60 !important;
-  opacity: 1;
-}
-
-/* Arrow rotate on hover (Optional but looks good) */
-.dropdown:hover .arrow {
-  transform: rotate(180deg);
-  color: #27ae60;
-}
-
-.arrow {
-  font-size: 9px;
-  margin-left: 6px;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-/* Ensure Dropdown is hidden by default */
-.navMenu .dropdownContent {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #111111;
-  min-width: 200px;
-  padding: 10px 0 !important;
-  list-style: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  flex-direction: column !important;
-  z-index: 1000;
-}
-
-.dropdown:hover .dropdownContent {
-  display: flex !important;
-}
-/* --- Desktop Styles (Unchanged) --- */
-.navbar {
-  background-color: #000000 !important;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
-}
-
-.container {
-  width: 92%;
-  max-width: 1600px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logoText { color: #ffffff !important; font-size: 30px; font-weight: 800; text-decoration: none !important; }
-.dot { color: #27ae60; }
-
-.navMenu ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; align-items: center; }
-
-.navMenu a {
-  color: #ffffff !important;
-  text-decoration: none !important;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: 0.3s;
-  opacity: 0.8;
-}
-
-/* Dropdown styling */
-.dropdown { position: relative; }
-.dropLabel {
-  color: #ffffff !important;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  opacity: 0.8;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.dropdownContent {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #111111;
-  min-width: 200px;
-  padding: 10px 0 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  flex-direction: column !important;
-  z-index: 1000;
-}
-
-.dropdown:hover .dropdownContent { display: flex !important; }
+/* --- Actions (Right Side) --- */
+.actions { display: flex; align-items: center; gap: 15px; }
 
 .callBtn { 
   border: 1px solid #27ae60; 
@@ -273,66 +70,44 @@
 
 .mobileToggle span { width: 25px; height: 2px; background-color: #ffffff; }
 
-/* --- MOBILE RESPONSIVE (Upar ki requirements ke hisaab se) --- */
+/* --- Tablet Adjustment --- */
+@media (max-width: 1200px) {
+  .navMenu ul { gap: 12px; }
+  .navMenu a { font-size: 11px; }
+}
+
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 991px) {
   .container {
-    flex-direction: row-reverse; /* Logo ko right aur actions ko left karne ke liye */
+    flex-direction: row !important; /* Logo Left, Actions Right */
   }
 
-  .logoText {
-    font-size: 24px; /* Mobile par logo thoda chota */
-  }
+  .mobileToggle { display: flex; }
 
-  .actions {
-    display: flex;
-    flex-direction: row; /* Call Now pehle, Toggle baad mein */
-    align-items: center;
-    gap: 15px;
-  }
-
-  .callBtn {
-    padding: 8px 15px; /* Mobile par button thoda compact */
-    font-size: 10px;
-  }
-
-  .mobileToggle {
-    display: flex;
-    order: 2; /* Toggle ko right side of call button rakha */
-  }
-
-  /* Sidebar Menu Alignment */
   .navMenu {
     position: fixed;
     top: 80px;
-    left: -100%; /* Left se slide hone ke liye */
-    right: auto;
+    right: -100%; /* Right se nikalne ke liye */
     width: 280px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     background: #000;
-    transition: 0.4s;
-    padding: 20px;
+    transition: 0.4s ease-in-out;
+    padding: 30px 20px;
     display: block;
-    border-right: 1px solid rgba(255,255,255,0.1);
+    overflow-y: auto;
+    border-left: 1px solid rgba(255,255,255,0.1);
   }
   
-  .menuActive {
-    left: 0; /* Active hone par left se bahar aayega */
-  }
+  .menuActive { right: 0; }
   
   .navMenu ul {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 25px;
   }
 
-  .dropdownContent {
-    position: static;
-    display: block !important;
-    background: transparent;
-    box-shadow: none;
-    border: none;
-    padding-left: 15px !important;
+  .navMenu a { 
+    font-size: 16px; 
+    opacity: 1; 
   }
 }
-
-/* Rest of your existing CSS stays the same... */

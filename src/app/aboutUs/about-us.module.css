@@ -316,7 +316,7 @@
 
 .cardInfo { padding: 40px; }
 .cardIcon { color: #27ae60; margin-bottom: 20px; }
-.cardInfo h3 { font-size: 1.6rem; margin-bottom: 10px; }
+.cardInfo h3 { font-size: 1.6rem; margin-bottom: 10px; color: #000000; }
 
 /* --- WHY AREC --- */
 .whyArec { padding: 120px 0; border-top: 1px solid #f0f0f0; }
@@ -365,4 +365,19 @@
   .visionImage, .visionText { width: 100%; margin: 0; padding: 40px; }
   .whyWrapper { flex-direction: column; }
   .whyGrid { grid-template-columns: 1fr; }
+}
+.cardLink {
+  text-decoration: none; /* Underline hatane ke liye */
+  color: inherit;       /* Text color same rakhne ke liye */
+  display: block;       /* Poora area clickable banane ke liye */
+  transition: transform 0.3s ease;
+}
+
+.cardLink:hover {
+  transform: translateY(-5px); /* Hover par card thoda upar uthega (optional) */
+}
+
+/* Agar layout thoda bigad raha ho toh ise add karein */
+.offeringCard {
+  height: 100%; /* Ensure cards have same height inside Link */
 }

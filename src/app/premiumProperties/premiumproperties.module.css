@@ -1,5 +1,6 @@
 .page {
-  padding: 100px 5%;
+  padding: 50px 5%;
+  
   background-color: #ffffff; /* Explicit White Background */
   min-height: 100vh;
   color: #000000; /* Force base text to Black */

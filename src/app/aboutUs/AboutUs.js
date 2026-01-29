@@ -53,39 +53,48 @@ const AboutUs = () => {
           </div>
           
           <div className={styles.offeringGrid}>
-            <div className={styles.offeringCard}>
-              <div className={styles.cardImg}>
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600" alt="Commercial" />
-              </div>
-              <div className={styles.cardInfo}>
-                <Building2 className={styles.cardIcon} />
-                <h3>Commercial Hubs</h3>
-                <p>Grade-A office spaces leased to MNCs with steady monthly rentals.</p>
-              </div>
-            </div>
+  {/* Commercial Hubs Card */}
+  <Link href="/commercialproperties" className={styles.cardLink}>
+    <div className={styles.offeringCard}>
+      <div className={styles.cardImg}>
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600" alt="Commercial" />
+      </div>
+      <div className={styles.cardInfo}>
+        <Building2 className={styles.cardIcon} />
+        <h3>Commercial Hubs</h3>
+        <p>Grade-A office spaces leased to MNCs with steady monthly rentals.</p>
+      </div>
+    </div>
+  </Link>
 
-            <div className={styles.offeringCard}>
-              <div className={styles.cardImg}>
-                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600" alt="Holiday" />
-              </div>
-              <div className={styles.cardInfo}>
-                <Umbrella className={styles.cardIcon} />
-                <h3>Holiday Escapes</h3>
-                <p>Boutique villas and resort fragments in high-tourism zones.</p>
-              </div>
-            </div>
+  {/* Holiday Escapes Card */}
+  <Link href="/holiday-properties" className={styles.cardLink}>
+    <div className={styles.offeringCard}>
+      <div className={styles.cardImg}>
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600" alt="Holiday" />
+      </div>
+      <div className={styles.cardInfo}>
+        <Umbrella className={styles.cardIcon} />
+        <h3>Holiday Escapes</h3>
+        <p>Boutique villas and resort fragments in high-tourism zones.</p>
+      </div>
+    </div>
+  </Link>
 
-            <div className={styles.offeringCard}>
-              <div className={styles.cardImg}>
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600" alt="Residential" />
-              </div>
-              <div className={styles.cardInfo}>
-                <Home className={styles.cardIcon} />
-                <h3>Premium Living</h3>
-                <p>Gated communities and luxury residential projects in growing metros.</p>
-              </div>
-            </div>
-          </div>
+  {/* Premium Living Card */}
+  <Link href="/premiumProperties" className={styles.cardLink}>
+    <div className={styles.offeringCard}>
+      <div className={styles.cardImg}>
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600" alt="Residential" />
+      </div>
+      <div className={styles.cardInfo}>
+        <Home className={styles.cardIcon} />
+        <h3>Premium Living</h3>
+        <p>Gated communities and luxury residential projects in growing metros.</p>
+      </div>
+    </div>
+  </Link>
+</div>
         </div>
       </section>
 
