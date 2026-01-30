@@ -1,9 +1,9 @@
 'use client';
 import React, { useRef } from 'react';
-import Link from 'next/link'; // Import Link for navigation
+import Link from 'next/link';
 import styles from './commercial.module.css';
 
-// Updated Mock Data with high-quality, relevant images
+// Mock Data
 const commercialProjects = [
   {
     id: 1,
@@ -11,7 +11,6 @@ const commercialProjects = [
     location: "Moradabad City, Uttar Pradesh",
     type: "Retail Plaza- Income Starts from Day 1",
     status: "New Launch",
-    // Relevant high-quality retail/shopping mall image
     image: "/moradabad-building.jpeg", 
     yield: "12.1%",
     price: "₹25 Lakhs",
@@ -24,7 +23,6 @@ const commercialProjects = [
     location: "Sector 18, Noida",
     type: "Premium Retail Shop",
     status: "Selling Fast",
-    // Modern High-street architecture image
     image: "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=2070&auto=format&fit=crop",
     yield: "10.5%",
     price: "₹1.2 Cr",
@@ -37,7 +35,6 @@ const commercialProjects = [
     location: "Whitefield, Bangalore",
     type: "Managed Workspace",
     status: "New Launch",
-    // Modern co-working/office interior
     image: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=2070&auto=format&fit=crop",
     yield: "9.2%",
     price: "₹65 Lakhs",
@@ -50,7 +47,6 @@ const commercialProjects = [
     location: "Bhiwandi, Mumbai",
     type: "Industrial Warehouse",
     status: "High Demand",
-    // Modern industrial warehouse image
     image: "/logistics.jpg",
     yield: "7.5%",
     price: "₹2.5 Cr",
@@ -76,13 +72,27 @@ const CommercialSlider = () => {
 
   return (
     <section className={styles.section}>
+      {/* --- IN-COMPONENT SEO METADATA --- */}
+      <title>Commercial Real Estate Investment India | 12% Yield | AREC</title>
+      <meta 
+        name="description" 
+        content="Invest in Prime Commercial Leased Assets. High-yield retail plazas, office spaces, and warehouses in Noida, Bangalore, and Mumbai. Starting from ₹25 Lakhs." 
+      />
+      <meta name="keywords" content="commercial real estate India, fractional ownership, retail shops Noida, warehouse investment Mumbai, AREC assets" />
+      
+      {/* Open Graph for Social Sharing */}
+      <meta property="og:title" content="Invest in Grade-A Commercial Assets | AREC" />
+      <meta property="og:description" content="Secure steady rental income with premium commercial real estate fragments." />
+      <meta property="og:type" content="website" />
+      {/* ---------------------------- */}
+
       <div className={styles.container}>
         
         {/* Section Header */}
         <div className={styles.header}>
-          <h2 className={styles.title}>
+          <h1 className={styles.title}>
             Prime <span className={styles.greenText}>Commercial Leased Assets</span>
-          </h2>
+          </h1>
           <p className={styles.subtitle}>
             Secure steady rental income and capital appreciation with A-grade 
             commercial real estate. Invest in offices, retail spaces, high street markets and malls.
@@ -104,7 +114,11 @@ const CommercialSlider = () => {
                 
                 {/* Card Image */}
                 <div className={styles.imageWrapper}>
-                  <img src={project.image} alt={project.title} className={styles.cardImage} />
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} - Commercial Investment in ${project.location}`} 
+                    className={styles.cardImage} 
+                  />
                   <span className={styles.badge}>{project.status}</span>
                 </div>
 
@@ -159,9 +173,8 @@ const CommercialSlider = () => {
                     </div>
                   </div>
 
-                  {/* Invest Now Button */}
                   <div className={styles.buttonWrapper}>
-                    <Link href="/contact" className={styles.investButton}>
+                    <Link href="/contact-page" className={styles.investButton}>
                       Invest Now
                     </Link>
                   </div>
