@@ -12,7 +12,7 @@ const commercialProjects = [
     type: "Retail Plaza- Income Starts from Day 1",
     status: "New Launch",
     // Relevant high-quality retail/shopping mall image
-    image: "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?q=80&w=2070&auto=format&fit=crop", 
+    image: "/moradabad-building.jpeg", 
     yield: "12.1%",
     price: "₹25 Lakhs",
     units: "20/20",
