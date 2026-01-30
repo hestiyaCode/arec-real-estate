@@ -20,13 +20,13 @@ export default function Header() {
         {/* Navigation Menu - Ab saare direct links hain */}
         <nav className={`${styles.navMenu} ${isMenuOpen ? styles.menuActive : ""}`}>
           <ul>
-            <li><Link href="/" onClick={closeMenu}>Home</Link></li>
+            <li><Link href="/aboutUs" onClick={closeMenu}>About Us</Link></li>
             <li><Link href="/How-it-works-page" onClick={closeMenu}>How It Works</Link></li>
             <li><Link href="/holiday-properties" onClick={closeMenu}>Holiday Properties</Link></li>
             <li><Link href="/commercialproperties" onClick={closeMenu}>Commercial Buildings</Link></li>
             <li><Link href="/premiumProperties" onClick={closeMenu}>Premium Properties</Link></li>
             <li><Link href="/InsightsAndBlogsPage" onClick={closeMenu}>Insights & Blogs</Link></li>
-            <li><Link href="/aboutUs" onClick={closeMenu}>About Us</Link></li>
+            
             <li><Link href="/contact-page" onClick={closeMenu}>Contact</Link></li>
           </ul>
         </nav>

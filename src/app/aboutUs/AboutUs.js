@@ -118,7 +118,7 @@ const AboutUs = () => {
               </div>
               <div className={styles.featureItem}>
                 <Globe size={32} />
-                <h4>End-to-End Mgmt</h4>
+                <h4>End-to-End Management</h4>
                 <p>We handle tenants and maintenance; you just collect yields.</p>
               </div>
             </div>
