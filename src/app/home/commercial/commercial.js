@@ -161,7 +161,7 @@ const CommercialSlider = () => {
 
                   {/* Invest Now Button */}
                   <div className={styles.buttonWrapper}>
-                    <Link href="/contact" className={styles.investButton}>
+                    <Link href="/contact-page" className={styles.investButton}>
                       Invest Now
                     </Link>
                   </div>
