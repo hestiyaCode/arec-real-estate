@@ -54,10 +54,10 @@ const Footer = () => {
           <div className={styles.column}>
             <h4 className={styles.colHeading}>Company</h4>
             <ul className={styles.linkList}>
-              <li>About Us</li>
-              <li>Careers</li>
-              <li>Insights & Blog</li>
-              <li><Link href="/contact">Contact Us</Link></li>
+              <li><Link href="/aboutUs">About Us</Link></li>
+              
+              <li><Link href="/InsightsAndBlogsPage">Insights & Blog</Link></li>
+              <li><Link href="/contact-page">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
             <h4 className={styles.colHeading}>Invest</h4>
             <ul className={styles.linkList}>
               <li><Link href="/projects">Explore Projects</Link></li>
-              <li>How It Works</li>
+              <li><Link href="/How-it-works-page">How it works?</Link></li>
               
               {/* FIXED LINK: Changed "#faq" to "/#faq" */}
               <li>
@@ -79,7 +79,7 @@ const Footer = () => {
                 </Link>
               </li>
 
-              <li>Fees & Pricing</li>
+              
             </ul>
           </div>
 
