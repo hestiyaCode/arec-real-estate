@@ -140,3 +140,23 @@
     max-width: 100%;
   }
 }
+/* ... existing css ... */
+
+.footerLink {
+  display: inline-block; /* Essential for padding and transform to work */
+  color: #27ae60;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none; /* Removes default blue underline */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px; /* Gives it some breathing room from the text */
+}
+
+.footerLink:hover {
+  color: #219150; /* Darker green on hover */
+  gap: 12px; /* If you add a gap in the flex later */
+  transform: translateX(5px); /* Subtle nudge to the right */
+}
+
+/* ... existing css ... */

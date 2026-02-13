@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'; // Import Next.js Link
 import styles from './insightsandblogs.module.css';
 
 const InsightsAndBlogs = () => {
@@ -18,7 +19,7 @@ const InsightsAndBlogs = () => {
                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" 
                 alt="Real Estate Concept" 
               />
-              <span className={styles.cardBadge}>Coming Soon</span>
+              <span className={styles.cardBadge}>Real Estate</span>
             </div>
             
             <div className={styles.cardContent}>
@@ -27,17 +28,18 @@ const InsightsAndBlogs = () => {
                 <span className={styles.dot}>•</span>
                 <span>Real Estate</span>
               </div>
-              <h2 className={styles.cardTitle}>The Future of Digital Real Estate Investment</h2>
+              <h2 className={styles.cardTitle}>REITs vs Fractional Ownership: Choosing the Right Real Estate Investment in India</h2>
               <p className={styles.cardDescription}>
-                Explore how blockchain technology and property fragments are opening doors for 
-                small-scale investors to own premium assets with minimal capital.
+                India's real estate sector is changing rapidly. Property investment has switched from sole ownership of entire buildings to new ways of investing, such as fractional ownership of real estate in India and Real Estate Investment Trusts (REITs). These allow more people, including first-time buyers, to participate in real estate without having to invest a large amount of money. 
               </p>
-              <div className={styles.footerLink}>Read More →</div>
+              
+              {/* Using Next.js Link for the Read More button */}
+              <Link href="/rietandfractional" className={styles.footerLink}>
+                Read More →
+              </Link>
             </div>
           </div>
         </div>
-
-        <h2 className={styles.comingSoonText}>MORE UPDATES COMING SOON</h2>
       </div>
     </div>
   );

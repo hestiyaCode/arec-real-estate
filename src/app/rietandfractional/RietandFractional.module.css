@@ -1,0 +1,66 @@
+/* Add this to ensure the entire page background is white */
+body {
+  background-color: #ffffff;
+  margin: 0;
+}
+
+.postContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff; /* Explicitly white */
+  color: #000000; /* Pure black text */
+}
+
+.nav { margin-bottom: 40px; }
+
+.backBtn {
+  text-decoration: none;
+  color: #0984e3;
+  font-weight: 600;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 15px 0;
+  color: #000000; /* Changed from #1e272e to pure black */
+}
+
+.tag {
+  background: #f0f0f0; /* Light grey tag background */
+  color: #333333;      /* Dark text for the tag */
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.bodyContent {
+  line-height: 1.8;
+  font-size: 1.15rem;
+  color: #000000;
+}
+
+.lead {
+  font-size: 1.3rem;
+  color: #2d3436; /* Darkened for better readability on white */
+  margin-bottom: 30px;
+}
+
+.infoBox {
+  background: #f8f9fa; /* Very light grey for the box */
+  padding: 30px;
+  border-left: 5px solid #0984e3;
+  margin: 40px 0;
+  border-radius: 0 8px 8px 0;
+  color: #000000;
+}
