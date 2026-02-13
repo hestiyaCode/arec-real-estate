@@ -22,7 +22,7 @@ const faqData = [
 
     question: "Who can invest?",
 
-    answer: "We welcome institutional investors, HNIs, NRIs, and eligible retail investors with minimum investment thresholds. NRIs may invest through designated NRO/NRE accounts."
+    answer: "We welcome institutional investors eligible retail investors with minimum investment thresholds."
 
   },
 
