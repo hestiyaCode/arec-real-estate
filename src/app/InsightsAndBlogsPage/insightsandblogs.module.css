@@ -144,7 +144,7 @@
 
 .footerLink {
   display: inline-block; /* Essential for padding and transform to work */
-  color: #27ae60;
+  color:  #27ae60 !important;
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none; /* Removes default blue underline */
