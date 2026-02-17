@@ -6,7 +6,7 @@ export default function Contact() {
     <>
       
       <ContactPage/>
-      <Footer/>
+      
     </>
   );
 }
