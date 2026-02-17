@@ -6,7 +6,7 @@ export default function InsightsAndBlogs() {
     <>
 
       <InsightsAndBlogss/>
-      <Footer/>
+      
     </>
   );
 }

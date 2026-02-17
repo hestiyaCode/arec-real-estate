@@ -1,8 +1,32 @@
-import React from 'react';
-import Link from 'next/link'; // Import Next.js Link
+"use client";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styles from './insightsandblogs.module.css';
 
 const InsightsAndBlogs = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Database se blogs fetch karna
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch("/api/blogs");
+        const data = await res.json();
+        if (data.success) {
+          setBlogs(data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  if (loading) return <div className={styles.container}>Loading Insights...</div>;
+
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
@@ -12,33 +36,37 @@ const InsightsAndBlogs = () => {
         </header>
 
         <div className={styles.blogGrid}>
-          {/* Real Estate Blog Card */}
-          <div className={styles.blogCard}>
-            <div className={styles.imagePlaceholder}>
-              <img 
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" 
-                alt="Real Estate Concept" 
-              />
-              <span className={styles.cardBadge}>Real Estate</span>
-            </div>
-            
-            <div className={styles.cardContent}>
-              <div className={styles.meta}>
-                <span>Jan 28, 2026</span>
-                <span className={styles.dot}>•</span>
-                <span>Real Estate</span>
+          {blogs.length > 0 ? (
+            blogs.map((blog) => (
+              <div key={blog._id} className={styles.blogCard}>
+                <div className={styles.imagePlaceholder}>
+                  <img src={blog.imageUrl} alt={blog.title} />
+                  <span className={styles.cardBadge}>{blog.category || "Real Estate"}</span>
+                </div>
+                
+                <div className={styles.cardContent}>
+                  <div className={styles.meta}>
+                    <span>{new Date(blog.createdAt).toLocaleDateString('en-US', {
+                      month: 'short', day: 'numeric', year: 'numeric'
+                    })}</span>
+                    <span className={styles.dot}>•</span>
+                    <span>{blog.category || "Insight"}</span>
+                  </div>
+                  <h2 className={styles.cardTitle}>{blog.title}</h2>
+                  <p className={styles.cardDescription}>
+                    {blog.description.substring(0, 180)}...
+                  </p>
+                  
+                  {/* Dynamic ID ke sath Link */}
+                  <Link href={`/blogs/${blog._id}`} className={styles.footerLink}>
+                    Read More →
+                  </Link>
+                </div>
               </div>
-              <h2 className={styles.cardTitle}>REITs vs Fractional Ownership: Choosing the Right Real Estate Investment in India</h2>
-              <p className={styles.cardDescription}>
-                India's real estate sector is changing rapidly. Property investment has switched from sole ownership of entire buildings to new ways of investing, such as fractional ownership of real estate in India and Real Estate Investment Trusts (REITs). These allow more people, including first-time buyers, to participate in real estate without having to invest a large amount of money. 
-              </p>
-              
-              {/* Using Next.js Link for the Read More button */}
-              <Link href="/rietandfractional" className={styles.footerLink}>
-                Read More →
-              </Link>
-            </div>
-          </div>
+            ))
+          ) : (
+            <p>No blogs published yet.</p>
+          )}
         </div>
       </div>
     </div>

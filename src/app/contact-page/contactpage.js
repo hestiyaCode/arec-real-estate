@@ -88,11 +88,11 @@ const ContactPage = () => {
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Phone:</span>
-              <p><a href="tel:+919911557887" className={styles.link}>+91 9911557887</a></p>
+              <p><a href="tel:+9196670 07078" className={styles.link}>+91 96670 07078</a></p>
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Email:</span>
-              <p><a href="mailto:hello@thearec.com" className={styles.link}>hello@thearec.com</a></p>
+              <p><a href="mailto:arec.admin@gmail.com" className={styles.link}>arec.admin@gmail.com</a></p>
             </div>
           </div>
           {/* ---------------------------------- */}

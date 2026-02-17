@@ -1,0 +1,116 @@
+/* src/app/blogs/[id]/BlogDetail.module.css */
+
+/* Pure page ko white karne ke liye */
+.pageWrapper {
+  background-color: #ffffff; 
+  min-height: 100vh;
+  width: 100%;
+}
+
+.blogContainer {
+  max-width: 900px;
+  margin: 0 auto; /* Margin top niche wrapper se handle hoga */
+  padding: 120px 20px 60px 20px; /* Top padding header ke liye */
+  background-color: #ffffff; 
+  color: #1a202c; 
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 3.2rem; /* Thoda bada aur bold */
+  line-height: 1.2;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 15px;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 20px;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-height: 550px;
+  margin: 40px 0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.content {
+  line-height: 1.8;
+  font-size: 1.25rem;
+  color: #334155;
+  white-space: pre-wrap; 
+  margin-top: 20px;
+}
+/* Purani content class ko update karein */
+.content {
+  line-height: 1.8;
+  font-size: 1.2rem;
+  color: #334155;
+}
+
+/* Markdown ke andar ke elements ki styling */
+.content p {
+  margin-bottom: 20px; /* Paragraphs ke beech space */
+}
+
+.content strong {
+  color: #0f172a; /* Bold text ko thoda dark rakhein */
+  font-weight: 700;
+}
+
+/* Agar aap heading use karein toh (### Heading) */
+.content h3 {
+  margin: 30px 0 15px 0;
+  color: #1b3022;
+  font-size: 1.6rem;
+}
+
+/* --- Baaki ka code (Loading/Spinner) same rahega --- */
+.loadingWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Isse bhi white kar diya */
+  color: #27ae60;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f4f6;
+  border-top: 5px solid #27ae60;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .blogContainer { padding-top: 100px; }
+  .title { font-size: 2.2rem; }
+}
