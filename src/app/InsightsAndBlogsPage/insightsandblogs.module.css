@@ -31,15 +31,20 @@
   font-weight: 500;
 }
 
+/* --- Updated blogGrid to add gap --- */
 .blogGrid {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Mobile compatibility ke liye zaroori hai */
+  gap: 40px;      /* Cards ke beech 40px ka space (Aap ise 30px-50px tak adjust kar sakte hain) */
   margin-bottom: 60px;
+  padding: 0 10px;
 }
 
+/* --- Card ki width ko manage karne ke liye --- */
 .blogCard {
   width: 100%;
-  max-width: 400px;
+  flex: 0 1 400px; /* Isse cards properly align rahenge aur gap maintain hoga */
   background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
@@ -52,6 +57,8 @@
 .blogCard:hover {
   transform: translateY(-10px);
 }
+
+/* Baki ka code same rahega... */
 
 .imagePlaceholder {
   width: 100%;

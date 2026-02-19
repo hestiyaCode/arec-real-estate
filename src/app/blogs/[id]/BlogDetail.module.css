@@ -6,7 +6,20 @@
   min-height: 100vh;
   width: 100%;
 }
-
+/* Maan lijiye aapka cards ka wrapper .cardsGrid hai */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  
+  /* Ye line cards ke beech gap add karegi */
+  gap: 30px; 
+  
+  padding: 20px;
+}
+.card {
+  margin: 15px; /* Charo taraf space dega */
+  /* Baaki card ki styling... */
+}
 .blogContainer {
   max-width: 900px;
   margin: 0 auto; /* Margin top niche wrapper se handle hoga */
@@ -14,6 +27,7 @@
   background-color: #ffffff; 
   color: #1a202c; 
   font-family: 'Inter', sans-serif;
+ 
 }
 
 .header {
