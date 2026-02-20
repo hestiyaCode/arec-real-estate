@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import path from 'path';
-import fs from 'fs/promises';
+import { put } from '@vercel/blob'; // This is the key for Vercel
 import dbConnect from '@/lib/db';
 import Career from '@/models/Career';
 
@@ -18,24 +17,18 @@ export async function POST(req) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    // 1. Process the file
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    // 1. Upload to Vercel Blob instead of writing to disk
+    // This avoids the "read-only file system" error
+    const blob = await put(file.name, file, {
+      access: 'multipart',
+    });
 
-    // 2. Create a unique filename to prevent overwriting
-    const fileName = `${Date.now()}-${file.name.replaceAll(" ", "_")}`;
-    const filePath = path.join(process.cwd(), 'public/uploads', fileName);
-
-    // 3. Save to local filesystem
-    await fs.writeFile(filePath, buffer);
-
-    // 4. Save metadata to MongoDB (using the relative path for the browser)
-    const publicPath = `/uploads/${fileName}`;
+    // 2. Save the URL from the blob into your MongoDB
     const newApplication = await Career.create({
       name,
       email,
       reason,
-      resumeUrl: publicPath,
+      resumeUrl: blob.url, // Store the web link to the file
     });
 
     return NextResponse.json({ 
@@ -45,6 +38,6 @@ export async function POST(req) {
 
   } catch (error) {
     console.error("API Error:", error);
-    return NextResponse.json({ error: "Server error occurred" }, { status: 500 });
+    return NextResponse.json({ error: "Server failed to process file" }, { status: 500 });
   }
 }

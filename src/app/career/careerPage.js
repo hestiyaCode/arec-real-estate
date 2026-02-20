@@ -37,9 +37,11 @@ export default function CareerPage() {
         method: 'POST',
         body: data,
       });
-
+console.log(response)
       if (response.ok) {
+         
         setSubmitted(true);
+       
       } else {
         const err = await response.json();
         alert(`Error: ${err.error}`);
@@ -56,7 +58,7 @@ export default function CareerPage() {
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1>Join the <span className={styles.greenHighlight}>TheaRec</span> Team</h1>
+          <h1>Join the <span className={styles.greenHighlight}>The AREC</span> Team</h1>
           <p>Innovation meets the stage. Explore our open positions below.</p>
         </header>
 

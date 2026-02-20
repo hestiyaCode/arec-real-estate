@@ -1,8 +1,8 @@
 .pageWrapper {
-  background-color: #ffffff; 
+  background-color: #ffffff !important; 
   min-height: 100vh;
   width: 100%;
-  padding: 60px 0;
+  padding: 40px 0;
   color: #1a1a1a;
 }
 

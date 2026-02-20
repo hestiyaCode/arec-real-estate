@@ -92,7 +92,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Email:</span>
-              <p><a href="mailto:arec.admin@gmail.com" className={styles.link}>arec.admin@gmail.com</a></p>
+              <p><a href="connect@thearec.com" className={styles.link}>connect@thearec.com</a></p>
             </div>
           </div>
           {/* ---------------------------------- */}
