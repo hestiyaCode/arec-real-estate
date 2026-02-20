@@ -26,8 +26,10 @@ export default function Header() {
             <li><Link href="/commercialproperties" onClick={closeMenu}>Commercial Buildings</Link></li>
             <li><Link href="/premiumProperties" onClick={closeMenu}>Premium Properties</Link></li>
             <li><Link href="/InsightsAndBlogsPage" onClick={closeMenu}>Insights & Blogs</Link></li>
+           
             
             <li><Link href="/contact-page" onClick={closeMenu}>Contact</Link></li>
+             <li><Link href="/career" onClick={closeMenu}>Career</Link></li>
           </ul>
         </nav>
 
