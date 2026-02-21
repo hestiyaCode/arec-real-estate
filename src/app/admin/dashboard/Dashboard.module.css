@@ -1,18 +1,20 @@
-/* src/app/admin/dashboard/Dashboard.module.css */
-
+/* Layout Container */
 .dashboardContainer {
   display: flex;
   height: 100vh;
-  background-color: #f0f7f4; /* Very light mint green background */
+  background-color: #f0f7f4; /* Light mint green background */
   color: #2d3436;
 }
 
+/* Sidebar Styling */
 .sidebar {
   width: 260px;
-  background-color: #1b3022; /* Dark forest green sidebar */
+  background-color: #1b3022; /* Dark forest green */
   color: #ffffff;
   padding: 1.5rem;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebarTitle {
@@ -20,7 +22,7 @@
   font-weight: 700;
   border-bottom: 1px solid #2d4a36;
   padding-bottom: 1rem;
-  color: #98ddca; /* Mint green accent */
+  color: #98ddca;
 }
 
 .nav {
@@ -44,15 +46,22 @@
   transform: translateX(5px);
 }
 
+.activeNav {
+  background-color: #27ae60;
+  color: white !important;
+}
+
+/* Main Content Area */
 .mainContent {
   flex: 1;
   padding: 2.5rem;
   overflow-y: auto;
 }
 
+/* Header with Right-Aligned Logout */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Pushes Title to Left and Button to Right */
   align-items: center;
   margin-bottom: 2rem;
 }
@@ -63,60 +72,26 @@
   color: #1b3022;
 }
 
+/* Logout Button Styling */
 .logoutBtn {
   background-color: #e74c3c;
   color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(231, 76, 60, 0.1);
 }
 
 .logoutBtn:hover {
   background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(192, 57, 43, 0.2);
 }
 
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.statCard {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-  border-top: 5px solid #48bb78; /* Green top border */
-  transition: transform 0.2s;
-}
-
-.statCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-}
-
-.statLabel {
-  color: #718096;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.statValue {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #1b3022;
-  margin-top: 0.5rem;
-}
-/* Sidebar me active link ke liye */
-.activeNav {
-  background-color: #27ae60;
-  color: white !important;
-}
-
+/* Form Section Styling */
 .formSection {
   display: flex;
   justify-content: center;

@@ -10,51 +10,66 @@ export default function Dashboard() {
     category: "Real Estate"
   });
 
-  const handleLogout = () => {
-    window.location.href = "/admin/login";
+  const handleLogout = async () => {
+    try {
+      const res = await fetch("/api/admin/logout", {
+        method: "POST",
+      });
+
+      if (res.ok) {
+        // Once cookie is cleared via API, redirect to login
+        window.location.href = "/admin/login";
+      } else {
+        alert("Logout failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await fetch("/api/blogs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blogData),
-    });
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/blogs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blogData),
+      });
 
-    if (res.ok) {
-      alert("Blog Published Successfully!");
-      setBlogData({ title: "", description: "", imageUrl: "", category: "Real Estate" });
-    } else {
-      alert("Failed to publish blog");
+      if (res.ok) {
+        alert("Blog Published Successfully!");
+        setBlogData({ title: "", description: "", imageUrl: "", category: "Real Estate" });
+      } else {
+        alert("Failed to publish blog");
+      }
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error(err);
-  }
-};
+  };
 
   return (
     <div className={styles.dashboardContainer}>
-      {/* Sidebar - Only Blogs */}
+      {/* Sidebar - Navigation Only */}
       <aside className={styles.sidebar}>
-        <h1 className={styles.sidebarTitle}>AREC Admin</h1>
-        <nav className={styles.nav}>
-          <p className={`${styles.navItem} ${styles.activeNav}`}>
-            📝 Post New Blog
-          </p>
-          
-        </nav>
+        <div className={styles.sidebarTop}>
+          <h1 className={styles.sidebarTitle}>AREC Admin</h1>
+          <nav className={styles.nav}>
+            <p className={`${styles.navItem} ${styles.activeNav}`}>
+              📝 Post New Blog
+            </p>
+          </nav>
+        </div>
       </aside>
 
-      {/* Main Content */}
+      {/* Main Content Area */}
       <main className={styles.mainContent}>
         <header className={styles.header}>
           <h2 className={styles.headerTitle}>Blog Management</h2>
-         {/*<button onClick={handleLogout} className={styles.logoutBtn}>
+          
+          {/* Logout Button positioned on the right side of the header */}
+          <button onClick={handleLogout} className={styles.logoutBtn}>
             Logout
           </button>
-          */} 
         </header>
 
         {/* Blog Upload Form Section */}
