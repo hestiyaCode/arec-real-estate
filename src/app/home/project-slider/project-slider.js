@@ -10,72 +10,44 @@ import {
   Layers, Coins, Building2, ChevronLeft, ChevronRight 
 } from 'lucide-react'; 
 
-// Swiper CSS imports
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-const projects = [
-  {
-    id: 1,
-    title: "Raja Ji Estates",
-    location: "Mohand Range, Saharanpur, Uttar Pradesh",
-    type: "Farmhouse Villas",
-    yield: "8.5%",
-    minInvest: "₹15 Lakhs",
-    image: "/raja-ji.jpeg",
-    status: "Newly Launched",
-    totalPrice: "₹3 Crores",
-    availableUnits: "19/20",
-  },
-  {
-    id: 2,
-    title: "Primemark Mall Noida",
-    location: "Sector 34, Noida",
-    type: "Commercial Retail",
-    yield: "9.2%",
-    minInvest: "₹1 Crore",
-    image: "/prime-mark.jpeg",
-    status: "Filling Fast",
-    totalPrice: "₹50 Crores",
-    availableUnits: "48/50",
-  },
-  {
-    id: 3,
-    title: "Rise Square Market",
-    location: "Sector 1, Greater Noida",
-    type: "Retail Shop",
-    yield: "10.1%",
-    minInvest: "₹10 Lakhs",
-    image: "/rise-market.webp",
-    status: "New Launch",
-    totalPrice: "₹1.2 Crores",
-    availableUnits: "11/12",
-  },
-  {
-    id: 4,
-    title: "Risa Golf Course Villas",
-    location: "Sector 1, Greater Noida",
-    type: "Villas",
-    yield: "7.8%",
-    minInvest: "₹25 Lakhs",
-    image: "/rise-villas.webp",
-    status: "Waitlist",
-    totalPrice: "₹5 Crores",
-    availableUnits: "16/20",
-  }
-];
 
 const ProjectSlider = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [mounted, setMounted] = useState(false);
+  
+  // --- NEW: Dynamic State for Projects ---
+  const [dynamicProjects, setDynamicProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setMounted(true);
+    
+    // Fetch projects from your API
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/projects');
+        const data = await response.json();
+        setDynamicProjects(data);
+      } catch (error) {
+        console.error("Failed to load projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   if (!mounted) return null;
+
+  // Optional: Loading state
+  if (loading && dynamicProjects.length === 0) {
+    return <section className={styles.section}><div className={styles.container}>Loading Opportunities...</div></section>;
+  }
 
   return (
     <section className={styles.section}>
@@ -88,15 +60,13 @@ const ProjectSlider = () => {
           </h2>
           <p className={styles.description}>
             We offer institutional-grade real estate investments across commercial, residential and holiday home sectors. 
-            Our platform enables retail investors to earn steady capital appreciation and rental
-            income.
+            Our platform enables retail investors to earn steady capital appreciation and rental income.
           </p>
         </div>
 
         {/* Slider Section */}
         <div className={styles.sliderWrapper}>
           
-          {/* Custom Navigation Buttons (Positioned on Borders) */}
           <button ref={prevRef} className={`${styles.navBtn} ${styles.prevBtn}`} aria-label="Previous slide">
             <ChevronLeft size={24} />
           </button>
@@ -113,7 +83,6 @@ const ProjectSlider = () => {
               nextEl: nextRef.current,
             }}
             onBeforeInit={(swiper) => {
-              // Re-assign refs before Swiper initializes
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
             }}
@@ -126,20 +95,22 @@ const ProjectSlider = () => {
             }}
             className={styles.swiperContainer}
           >
-            {projects.map((project) => (
-              <SwiperSlide key={project.id} className={styles.slide}>
+            {/* --- CHANGED: Mapping over dynamicProjects instead of static array --- */}
+            {dynamicProjects.map((project) => (
+              <SwiperSlide key={project._id} className={styles.slide}>
                 <div className={styles.card}>
                   
                   {/* Image Container */}
                   <div className={styles.imageContainer}>
                     <Image 
-                      src={project.image} 
+                      src={project.imageUrl} // Now using the Vercel Blob URL from DB
                       alt={project.title} 
                       fill
                       className={styles.cardImage}
+                      unoptimized={true} // Helpful for external Blob URLs
                     />
                     <span className={styles.statusBadge}>
-                      {project.status}
+                      {project.tag} {/* Using 'tag' field from Dashboard */}
                     </span>
                   </div>
 
@@ -155,7 +126,7 @@ const ProjectSlider = () => {
 
                       <div className={styles.infoRow}>
                         <Building2 size={16} className={styles.icon} />
-                        <span style={{ fontWeight: '500' }}>{project.type}</span>
+                        <span style={{ fontWeight: '500' }}>{project.category}</span>
                       </div>
                     </div>
 
@@ -164,7 +135,7 @@ const ProjectSlider = () => {
                         <TrendingUp size={18} className={styles.accentIcon} />
                         <div>
                           <span className={styles.statLabel}>Target Yield</span>
-                          <span className={styles.statValue}>{project.yield}</span>
+                          <span className={styles.statValue}>{project.targetYield}</span>
                         </div>
                       </div>
                       
@@ -172,7 +143,7 @@ const ProjectSlider = () => {
                         <Wallet size={18} className={styles.accentIcon} />
                         <div>
                           <span className={styles.statLabel}>Token Price</span>
-                          <span className={styles.statValue}>{project.minInvest}</span>
+                          <span className={styles.statValue}>{project.tokenPrice}</span>
                         </div>
                       </div>
                       
@@ -180,7 +151,7 @@ const ProjectSlider = () => {
                         <Layers size={18} className={styles.accentIcon} />
                         <div>
                           <span className={styles.statLabel}>Available</span>
-                          <span className={styles.statValue}>{project.availableUnits}</span>
+                          <span className={styles.statValue}>{project.availableTokens}</span>
                         </div>
                       </div>
                       
@@ -188,7 +159,7 @@ const ProjectSlider = () => {
                         <Coins size={18} className={styles.accentIcon} />
                         <div>
                           <span className={styles.statLabel}>Total Value</span>
-                          <span className={styles.statValue}>{project.totalPrice}</span>
+                          <span className={styles.statValue}>{project.totalValue}</span>
                         </div>
                       </div>
                     </div>

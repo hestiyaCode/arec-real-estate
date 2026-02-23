@@ -20,7 +20,7 @@ export async function POST(req) {
     // 1. Upload to Vercel Blob instead of writing to disk
     // This avoids the "read-only file system" error
     const blob = await put(file.name, file, {
-      access: 'private',
+      access: 'public',
     });
 
     // 2. Save the URL from the blob into your MongoDB
