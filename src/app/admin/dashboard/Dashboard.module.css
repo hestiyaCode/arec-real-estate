@@ -185,6 +185,13 @@
   background-color: #a5d6a7;
   cursor: not-allowed;
 }
+.leadsTable th {
+  border-bottom: 2px solid #2ecc71; /* AREC Green Theme */
+  color: #333;
+}
+.leadsTable td {
+  color: #555;
+}
 
 /* --- MEDIA QUERIES (Mobile Optimization) --- */
 

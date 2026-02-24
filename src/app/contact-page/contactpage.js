@@ -38,6 +38,16 @@ const ContactPage = () => {
       toast.dismiss(loadingToast);
 
       if (response.ok) {
+        // --- GOOGLE ADS CONVERSION TRACKING START ---
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-17971251005/h6JzCLXi8_0bEL2OrvlC',
+            'transaction_id': ''
+          });
+          console.log("Ads Conversion Tracked!");
+        }
+        // --- GOOGLE ADS CONVERSION TRACKING END ---
+
         setStatus("success");
         setFormData({ username: '', phoneNumber: '', occupation: '' }); 
         
@@ -80,7 +90,6 @@ const ContactPage = () => {
             investments, portfolio management and other interesting offers.
           </p>
 
-          {/* --- NEW CONTACT DETAILS SECTION --- */}
           <div className={styles.contactInfo}>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Address:</span>
@@ -92,10 +101,9 @@ const ContactPage = () => {
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Email:</span>
-              <p><a href="connect@thearec.com" className={styles.link}>connect@thearec.com</a></p>
+              <p><a href="mailto:connect@thearec.com" className={styles.link}>connect@thearec.com</a></p>
             </div>
           </div>
-          {/* ---------------------------------- */}
         </div>
 
         {/* Right Side: Form */}
