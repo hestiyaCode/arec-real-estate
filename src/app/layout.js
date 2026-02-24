@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // 1. Script import kiya
+import Script from "next/script";
 import "./globals.css";
 import Header from "./common/header/header";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import Footer from "./home/Footer/Footer";
 
 const geistSans = Geist({
@@ -18,38 +18,42 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Arec",
   description: "Aakash real estate company",
-  icons:{
-    icon: '/favicon.svg',
-  }
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* --- Google Tag (gtag.js) START --- */}
+        {/* ✅ Google Ads Global Site Tag */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17971251005"
           strategy="afterInteractive"
         />
-        <Script id="google-ads-tag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17971251005');
-          `}
-        </Script>
-        {/* --- Google Tag (gtag.js) END --- */}
+        <Script
+          id="google-ads-base"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', 'AW-17971251005');
+            `,
+          }}
+        />
       </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        
         {children}
-        <Analytics/>
-        <Footer/>
+        <Analytics />
+        <Footer />
       </body>
     </html>
   );
