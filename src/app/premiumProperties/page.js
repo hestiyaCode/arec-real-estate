@@ -35,7 +35,7 @@ export default function InsightsAndBlogs() {
   return (
     <>
       <PremiumPropertiespage />
-      <Footer />
+ 
     </>
   );
 }

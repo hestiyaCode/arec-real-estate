@@ -22,23 +22,37 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("loading");
 
+    // --- CLIENT-SIDE VALIDATION ---
+    const { username, phoneNumber, occupation } = formData;
+    
+    if (username.trim().length < 2) {
+      return toast.error("Please enter a valid full name.");
+    }
+
+    const phoneRegex = /^[6-9]\d{9}$/; 
+    if (!phoneRegex.test(phoneNumber.replace(/\s/g, ''))) {
+      return toast.error("Please enter a valid 10-digit phone number.");
+    }
+
+    if (!occupation) {
+      return toast.error("Please select your occupation.");
+    }
+
+    setStatus("loading");
     const loadingToast = toast.loading("Submitting your application...");
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       toast.dismiss(loadingToast);
 
       if (response.ok) {
-        // --- GOOGLE ADS CONVERSION TRACKING START ---
+        // --- GOOGLE ADS CONVERSION TRACKING ---
         if (typeof window !== "undefined" && window.gtag) {
           window.gtag('event', 'conversion', {
             'send_to': 'AW-17971251005/h6JzCLXi8_0bEL2OrvlC',
@@ -46,7 +60,6 @@ const ContactPage = () => {
           });
           console.log("Ads Conversion Tracked!");
         }
-        // --- GOOGLE ADS CONVERSION TRACKING END ---
 
         setStatus("success");
         setFormData({ username: '', phoneNumber: '', occupation: '' }); 
@@ -97,7 +110,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Phone:</span>
-              <p><a href="tel:+9196670 07078" className={styles.link}>+91 96670 07078</a></p>
+              <p><a href="tel:+919667007078" className={styles.link}>+91 96670 07078</a></p>
             </div>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Email:</span>
@@ -136,18 +149,37 @@ const ContactPage = () => {
               />
             </div>
 
-            <div className={styles.inputGroup}>
-              <input
-                type="text"
-                name="occupation"
-                value={formData.occupation}
-                onChange={handleChange}
-                placeholder="Occupation"
-                className={styles.inputField}
-                required
-              />
-            </div>
+            
+<div className={styles.inputGroup}>
+  {/* Add a simple icon or arrow here if you'd like since we hid the default one */}
+  <select
+    name="occupation"
+    value={formData.occupation}
+    onChange={handleChange}
+    className={styles.inputField}
+    required  /* Crucial for the placeholder color logic */
+  >
+    <option value="" disabled selected>Select Occupation</option>
+    
+    <option value="High-Net-Worth Individual">High-Net-Worth Individual (HNWI)</option>
+    <option value="Non-Resident Indian">Non-Resident Indian (NRI)</option>
+    <option value="Business Owner">Business Owner / Entrepreneur</option>
+    <option value="Corporate Executive">Corporate Executive (CXO/VP)</option>
+    
+    <option value="Institutional Investor">Institutional Investor</option>
+    <option value="Family Office">Family Office Representative</option>
+    <option value="Portfolio Manager">Portfolio Manager</option>
+    <option value="Investment Banker">Investment Banker</option>
+    <option value="Wealth Manager">Wealth Manager / Financial Advisor</option>
 
+    <option value="Real Estate Developer">Real Estate Developer</option>
+    <option value="Real Estate Consultant">Real Estate Consultant</option>
+    <option value="Architect">Architect / Urban Planner</option>
+    <option value="CA / Legal">CA / Legal Professional</option>
+
+    <option value="Other">Other</option>
+  </select>
+</div>
             <button type="submit" className={styles.submitBtn} disabled={status === "loading"}>
               {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
             </button>

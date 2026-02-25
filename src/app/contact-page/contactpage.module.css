@@ -130,6 +130,13 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   border-radius: 0;
+
+  appearance: none; 
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.inputField:invalid {
+  color: #cccccc; /* Matches your username/phone placeholder color */
 }
 
 .inputField::placeholder {
@@ -139,6 +146,15 @@
 .inputField:focus {
   outline: none;
   border-bottom-color: var(--primary-green);
+}
+.inputField option {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* Fix for the icon position (optional, helps alignment) */
+.inputGroup select.inputField {
+  padding-left: 2.5rem;
 }
 
 /* Submit Button */
