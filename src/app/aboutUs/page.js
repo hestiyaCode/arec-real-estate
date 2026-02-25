@@ -7,7 +7,7 @@ export default function aboutuspage() {
     <>
       
       <AboutUs/>
-      <Footer/>
+      
     </>
   );
 }
