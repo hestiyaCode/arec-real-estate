@@ -71,8 +71,8 @@ console.log(response)
             <div className={styles.jobInfo}>
               <h3>Sales Executive</h3>
               <p className={styles.jobDescription}>
-                Drive TheaRec's growth by identifying new business opportunities and managing corporate 
-                partnerships. We're looking for a persuasive communicator with a passion for the arts.
+                Drive the AREC's growth by identifying new business opportunities and managing corporate 
+                partnerships. We're looking for a persuasive communicator with a passion for sales and growth.
               </p>
               <div className={styles.jobTags}>
                 <span>Full-time</span>
@@ -89,7 +89,7 @@ console.log(response)
               <h3>Assistant Executive</h3>
               <p className={styles.jobDescription}>
                 Support our executive leadership in streamlining operations and project coordination. 
-                Ideal for a highly organized individual looking to break into theater management.
+                Ideal for a highly organized individual looking to break into organisational management.
               </p>
               <div className={styles.jobTags}>
                 <span>Full-time</span>

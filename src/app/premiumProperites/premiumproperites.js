@@ -6,29 +6,29 @@ import Link from 'next/link';
 const properties = [
   {
     id: 1,
-    title: "The Emerald Executive Hub",
+    title: "The Villa Farm House Project",
     images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1664718290306-8dc74f5fe511?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpbGxhJTIwbmVhciUyMGx1c2glMjBncmVlbiUyMG1hbnNpb258ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1649037756233-55cf385e4df2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dmlsbGElMjBuZWFyJTIwbHVzaCUyMGdyZWVuJTIwbWFuc2lvbnxlbnwwfHwwfHx8MA%3D%3D"
     ],
-    area: "12,500 sq.ft",
-    type: "Commercial",
-    landmark: "Near Cyber City",
-    location: "Gurugram, HR",
-    description: "Premium Grade-A office space with 10.5% projected rental yield."
+    area: "1000 sq.yard",
+    type: "Resedential",
+    landmark: "Raja Ji National Park",
+    location: "Behat, Saharanpur, U.P",
+    description: "A Villa township right adjacent to the shivalik mountain range with lush green forest and scenic mountain view. The project comprises of a club house with an infinity pool, Gym and a rooftop bar, vast common utilities areas and beautifull landscapes in the project. "
   },
   {
     id: 2,
-    title: "Azure Bay Resort Fragments",
+    title: "Commercial Land in Noida City Centre",
     images: [
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop"
+      "/noida commercial land.png",
+      
     ],
-    area: "5.5 Acres",
-    type: "Holiday Home",
-    landmark: "Vagator Beach Front",
-    location: "North Goa, GA",
-    description: "Fractional ownership in a 5-star luxury boutique resort."
+    area: "1800 sq.yard",
+    type: "Commercial land",
+    landmark: "Noida City Centre",
+    location: "Sector 35, Noida, U.P",
+    description: "Vacant land suitable for Hotel, Hospital, Mall and all type of commercial activities."
   }
 ];
 
@@ -74,7 +74,7 @@ const PropertyCard = ({ property }) => {
           </div>
         </div>
 
-        <Link href="/contact-page"><button className={styles.viewBtn}>Contact Owner</button></Link>
+        <Link href="/contact-page"><button className={styles.viewBtn}>Contact for details</button></Link>
       </div>
     </div>
   );
@@ -85,7 +85,7 @@ export default function PremiumProperties() {
     <div className={styles.page}>
       <header className={styles.header}>
         <span className={styles.tag}>Exclusive Listings</span>
-        <h1>Premium <span className={styles.greenText}>Assets</span></h1>
+        <h1>Exclusive <span className={styles.greenText}>Deals</span></h1>
       </header>
       <div className={styles.list}>
         {properties.map(p => <PropertyCard key={p.id} property={p} />)}

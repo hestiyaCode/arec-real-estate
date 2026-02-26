@@ -12,6 +12,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^2.3.0",
+    "firebase": "^12.9.0",
     "lucide-react": "^0.562.0",
     "mongoose": "^9.1.5",
     "next": "^16.1.6",

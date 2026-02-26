@@ -10,7 +10,7 @@ const AboutUs = () => {
       {/* 1. Hero Artistic Header */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <span className={styles.revealTag}>Est. 2024</span>
+          <span className={styles.revealTag}>Est. 2025</span>
           <h1 className={styles.mainTitle}>
             Redefining <span className={styles.greenText}>Ownership.</span><br />
             Architecting <span className={styles.italic}>Wealth.</span>
@@ -34,12 +34,12 @@ const AboutUs = () => {
           <h2 className={styles.sectionTitle}>Our Vision</h2>
           <p>
             The Indian real estate market has long been a "playbook for the few." High entry costs 
-            and legal complexities kept the common man away from high-yield assets. 
+            and legal complexities kept the majority away from investments opportunities in high-yield assets. 
           </p>
           <p>
             <strong>AREC changes the game.</strong> By fragmenting premium assets into digital tokens, 
             we allow you to own a piece of a Grade-A commercial building or a luxury holiday home 
-            with the same ease as buying a stock.
+            with the same ease as buying a piece of cake online.
           </p>
         </div>
       </section>

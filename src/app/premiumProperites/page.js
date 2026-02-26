@@ -1,5 +1,5 @@
-import PremiumPropertiespage from "../premiumProperties/premiumproperites";
-import Footer from "../home/Footer/Footer";
+import PremiumPropertiespage from "./premiumproperites";
+
 
 export const metadata = {
   title: "Premium Fractional Properties India | Luxury Holiday Home Investment | TheArec",

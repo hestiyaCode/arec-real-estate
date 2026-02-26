@@ -15,11 +15,11 @@ const HowItWorksarec = () => {
         <section className={styles.section}>
           <div className={styles.content}>
             <div className={styles.badge}>Step 1</div>
-            <h2>Understanding Property Tokenization</h2>
+            <h2>Understanding Fractional Property Ownership </h2>
             <p>
-              Tokenization is the process of converting a high-value real estate asset into 
+              The process of converting a high-value real estate asset into 
               digital <strong>fragments</strong> or tokens. Instead of one person needing to 
-              buy an entire building, we divide the property into <strong>X number of fragments</strong>.
+              buy an entire property, we divide the property into <strong>X number of fragments</strong>.
             </p>
             <p>
               By breaking down the barriers to entry, you can purchase as many fragments 
@@ -28,7 +28,7 @@ const HowItWorksarec = () => {
             </p>
             <ul className={styles.features}>
               <li>Low entry cost for premium properties</li>
-              <li>Transparent ownership on the blockchain</li>
+              <li>Transparent ownership legally</li>
               <li>Easy to buy and sell fragments</li>
             </ul>
           </div>
@@ -53,13 +53,13 @@ const HowItWorksarec = () => {
               complete your transaction instantly. 
             </p>
             <p>
-              You receive rental income and capital appreciation proportional to the 
+              You then enjoy rental income and capital appreciation proportional to the 
               number of fragments you hold.
             </p>
           </div>
           <div className={styles.imageContainer}>
             <img 
-              src="/10092.jpg" 
+              src="/how-it-works second image.png" 
               alt="City Architecture" 
               className={styles.image}
             />
