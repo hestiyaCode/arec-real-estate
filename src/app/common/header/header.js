@@ -12,12 +12,12 @@ export default function Header() {
   return (
     <header className={styles.navbar}>
       <div className={styles.container}>
-        {/* Logo - Hamesha Left mein rahega */}
+        {/* Logo */}
         <Link href="/" className={styles.logoLink} onClick={closeMenu}>
           <div className={styles.logoText}>AREC<span className={styles.dot}>.</span></div>
         </Link>
 
-        {/* Navigation Menu - Ab saare direct links hain */}
+        {/* Navigation Menu */}
         <nav className={`${styles.navMenu} ${isMenuOpen ? styles.menuActive : ""}`}>
           <ul>
             <li><Link href="/aboutUs" onClick={closeMenu}>About Us</Link></li>
@@ -26,16 +26,16 @@ export default function Header() {
             <li><Link href="/commercialproperites" onClick={closeMenu}>Commercial Buildings</Link></li>
             <li><Link href="/premiumProperites" onClick={closeMenu}>Exclusive Property</Link></li>
             <li><Link href="/InsightsAndBlogsPage" onClick={closeMenu}>Insights & Blogs</Link></li>
-           
-            
             <li><Link href="/contact-page" onClick={closeMenu}>Contact</Link></li>
-             <li><Link href="/career" onClick={closeMenu}>Career</Link></li>
+            <li><Link href="/career" onClick={closeMenu}>Career</Link></li>
           </ul>
         </nav>
 
-        {/* Actions - Call Now aur Hamburger Right mein */}
+        {/* Actions */}
         <div className={styles.actions}>
-          <Link href="/contact-page" className={styles.callBtn}>CALL NOW</Link>
+          {/* UPDATED: Calling link added here */}
+          <a href="tel:+919667007078" className={styles.callBtn}>CALL NOW</a>
+          
           <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="Toggle Menu">
             <span></span><span></span><span></span>
           </button>

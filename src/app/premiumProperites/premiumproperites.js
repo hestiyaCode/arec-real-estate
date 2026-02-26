@@ -28,7 +28,7 @@ const properties = [
     type: "Commercial land",
     landmark: "Noida City Centre",
     location: "Sector 35, Noida, U.P",
-    description: "Vacant land suitable for Hotel, Hospital, Mall and all type of commercial activities."
+    description: "Vacant land available, ideal for development of a Hotel, Hospital, Shopping Mall, or any type of commercial establishment. The property offers excellent potential for high-return investment and is strategically suitable for various business ventures, including retail, healthcare, hospitality, and mixed-use commercial projects."
   }
 ];
 
