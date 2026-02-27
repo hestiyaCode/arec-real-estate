@@ -263,6 +263,30 @@ select.inputField {
 .inputIcon {
   display: none; 
 }
+/* Captcha alignment fix */
+.captchaWrapper {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0 1rem 0;
+  min-height: 78px; /* Layout jump rokne ke liye */
+  overflow: hidden; /* Mobile par width issue na ho */
+}
+
+/* Internal recaptcha adjustment */
+#recaptcha-main {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* Mobile responsive optimization */
+@media (max-width: 400px) {
+  .captchaWrapper {
+    transform: scale(0.85); /* Chote phones par captcha thoda chota ho jaye */
+    transform-origin: center;
+  }
+}
 /* --- ANIMATIONS --- */
 @keyframes slideDown {
   0% {

@@ -14,6 +14,7 @@ const ContactPage = () => {
   const [status, setStatus] = useState(null);
   const [isLocked, setIsLocked] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaRendered, setCaptchaRendered] = useState(false); // New state to track rendering
 
   useEffect(() => {
     // 1. Check Entry Limit
@@ -23,41 +24,38 @@ const ContactPage = () => {
         const timePassed = Date.now() - parseInt(lastEntry);
         if (timePassed < 3600000) { 
           setIsLocked(true);
-          const remainingMins = Math.ceil((3600000 - timePassed) / 60000);
-          setTimeout(() => {
-            toast.error(`Entry limit reached. Try again after ${remainingMins} mins.`);
-          }, 500);
         }
       }
     };
     checkLimit();
 
-    // 2. Window logic for Captcha
+    // 2. Global Captcha Callbacks
     window.onCaptchaChange = (value) => {
       if(value) setCaptchaVerified(true);
     };
     window.onCaptchaExpired = () => {
       setCaptchaVerified(false);
     };
+  }, []);
 
-    // 3. FORCE RENDER (Ye box dikhayega)
-    const timer = setTimeout(() => {
+  // 3. Logic: Phone Number type karte hi captcha show hoga
+  useEffect(() => {
+    if (formData.phoneNumber.length > 0 && !captchaRendered) {
       if (window.grecaptcha && document.getElementById('recaptcha-main')) {
         try {
           window.grecaptcha.render('recaptcha-main', {
             'sitekey': '6LfuU3ksAAAAAM1RedyzZyXsScH0bZsM93qiFcEt',
             'callback': window.onCaptchaChange,
             'expired-callback': window.onCaptchaExpired,
-            'theme': 'dark'
+            'theme': 'light'
           });
+          setCaptchaRendered(true); // Ensure it only renders once
         } catch (error) {
-          console.log("Captcha already rendered");
+          console.log("Captcha error or already rendered");
         }
       }
-    }, 1000); // 1 second ka wait taaki script load ho jaye
-
-    return () => clearTimeout(timer);
-  }, []);
+    }
+  }, [formData.phoneNumber, captchaRendered]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -138,27 +136,61 @@ const ContactPage = () => {
 
           <form onSubmit={handleFinalSubmit} className={styles.form}>
             
-            {/* GOOGLE RECAPTCHA - Manual Render Target */}
-            <div className={styles.inputGroup} style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px', minHeight: '78px' }}>
-               <div id="recaptcha-main"></div> 
-            </div>
-
             <div className={styles.inputGroup}>
-              <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Full Name" className={styles.inputField} required />
+              <input 
+                type="text" 
+                name="username" 
+                value={formData.username} 
+                onChange={handleChange} 
+                placeholder="Full Name" 
+                className={styles.inputField} 
+                required 
+              />
             </div>
 
             <div className={styles.phoneInputGroup}>
-              <select name="countryCode" value={formData.countryCode} onChange={handleChange} className={styles.countrySelect}>
+              <select 
+                name="countryCode" 
+                value={formData.countryCode} 
+                onChange={handleChange} 
+                className={styles.countrySelect}
+              >
                 <option value="+91">+91 IN</option>
                 <option value="+971">+971 UAE</option>
                 <option value="+1">+1 USA</option>
                 <option value="+44">+44 UK</option>
               </select>
-              <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="Phone Number" className={styles.phoneInputField} required />
+              <input 
+                type="tel" 
+                name="phoneNumber" 
+                value={formData.phoneNumber} 
+                onChange={handleChange} 
+                placeholder="Phone Number" 
+                className={styles.phoneInputField} 
+                required 
+              />
+            </div>
+
+            {/* Captcha conditionally rendered container */}
+            <div 
+              className={styles.captchaWrapper} 
+              style={{ 
+                display: formData.phoneNumber.length > 0 ? 'flex' : 'none',
+                opacity: formData.phoneNumber.length > 0 ? 1 : 0,
+                transition: 'opacity 0.5s ease'
+              }}
+            >
+                <div id="recaptcha-main"></div> 
             </div>
 
             <div className={styles.inputGroup}>
-              <select name="occupation" value={formData.occupation} onChange={handleChange} className={styles.inputField} required>
+              <select 
+                name="occupation" 
+                value={formData.occupation} 
+                onChange={handleChange} 
+                className={styles.inputField} 
+                required
+              >
                 <option value="" disabled>Select Occupation</option>
                 <option value="High-Net-Worth Individual">High-Net-Worth Individual (HNWI)</option>
                 <option value="Non-Resident Indian">Non-Resident Indian (NRI)</option>
@@ -169,7 +201,11 @@ const ContactPage = () => {
               </select>
             </div>
 
-            <button type="submit" className={styles.submitBtn} disabled={status === "loading" || isLocked}>
+            <button 
+              type="submit" 
+              className={styles.submitBtn} 
+              disabled={status === "loading" || isLocked}
+            >
               {isLocked ? "ENTRY LIMITED (1 HR)" : (status === "loading" ? "SUBMITTING..." : "SUBMIT")}
             </button>
           </form>
