@@ -170,76 +170,126 @@
 // }
 "use client";
 import React from "react";
-import Link from "next/link"; // Import Link for navigation
+import Link from "next/link";
 import styles from "./hero.module.css";
-import { Building2, PieChart, Percent, TrendingUp } from "lucide-react"; 
+import { Building2, PieChart, Percent, TrendingUp, ArrowUpRight } from "lucide-react"; 
 
 export default function Hero() {
   return (
     <section className={styles.heroWrapper}>
       <div className={styles.container}>
-        <div className={styles.textContent}>
-          <div className={styles.badge}>Real Estate Investment</div>
-          <h1 className={styles.mainTitle}>
-            Invest in India’s <br />
-            Growth <span className={styles.greenText}>Through Real Estate.</span>
-          </h1>
-          <p className={styles.subTitle}>
-            Making real estate accessible and seamless to every Indian.
-          </p>
+        
+        <div className={styles.heroMain}>
+          
+          {/* Left Side: Content */}
+          <div className={styles.textContent}>
+            <span className={styles.badge}>Real Estate Investment</span>
+            <h1 className={styles.mainTitle}>
+              Invest in India’s <br />
+              Growth <span className={styles.greenText}>Through <br /> Real Estate.</span>
+            </h1>
+            <p className={styles.subTitle}>
+              Making premium commercial real estate accessible, transparent, and seamless for every Indian investor.
+            </p>
 
-          {/* Buttons linked to respective pages */}
-          <div className={styles.buttonGroup}>
-            <Link href="/contact-page" className={styles.primaryBtn}>
-              Get in Touch
-            </Link>
-            <Link href="/projects" className={styles.outlineBtn}>
-              Explore Projects
+            <div className={styles.buttonGroup}>
+              <Link href="/contact-page" className={styles.primaryBtn}>
+                Get in Touch &rarr;
+              </Link>
+              <Link href="/projects" className={styles.outlineBtn}>
+                <Building2 size={18} /> Explore Projects
+              </Link>
+            </div>
+
+            <div className={styles.socialProof}>
+              <div className={styles.avatarGroup}>
+                <div className={styles.avatar}></div>
+                <div className={styles.avatar}></div>
+                <div className={styles.avatar}></div>
+                <div className={`${styles.avatar} ${styles.more}`}>+100</div>
+              </div>
+              <p>Trusted by 100+ Investors</p>
+            </div>
+          </div>
+
+          {/* Right Side: Featured Property Card (Linked to Contact) */}
+          <div className={styles.cardContainer}>
+            <Link href="/contact-page" className={styles.cardLink}>
+              <div className={styles.featuredCard}>
+                <div className={styles.imageWrapper}>
+                  <span className={styles.cardBadge}>FEATURED PROPERTY</span>
+                  <img 
+                    src="/raja-ji.jpeg" 
+                    alt="Raja Ji Estates" 
+                    className={styles.cardImage}
+                  />
+                </div>
+                
+                <div className={styles.cardBody}>
+                  <div className={styles.cardHeader}>
+                    <div>
+                      <h3 className={styles.cardTitle}>Raja Ji Estates</h3>
+                      <p className={styles.cardLocation}>📍 Saharanpur, Uttar Pradesh</p>
+                    </div>
+                    <div className={styles.irrBadge}>10% IRR</div>
+                  </div>
+
+                  <div className={styles.cardStats}>
+                    <div className={styles.cardStatItem}>
+                      <p>MIN INV.</p>
+                      <strong>₹15L</strong>
+                    </div>
+                    <div className={styles.cardStatItem}>
+                      <p>YIELD</p>
+                      <strong>8.5%</strong>
+                    </div>
+                    <div className={styles.cardStatItem}>
+                      <p>Total Value</p>
+                      <strong>3 Crore</strong>
+                    </div>
+                  </div>
+                  
+                  <div className={styles.cardArrow}>
+                    <ArrowUpRight size={20} />
+                  </div>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
 
-        <div className={styles.statsRow}>
+        {/* Bottom Bar: Stats */}
+        <div className={styles.bottomStatsBar}>
           <div className={styles.statItem}>
-            <div className={styles.iconWrapper}>
-              <Building2 size={24} />
-            </div>
-            <div>
+            <div className={styles.iconBox}><Building2 size={20} /></div>
+            <div className={styles.statText}>
               <h4>Grade-A</h4>
-              <p>All type of Assets</p>
+              <p>ALL TYPE OF ASSETS</p>
             </div>
           </div>
-
           <div className={styles.statItem}>
-            <div className={styles.iconWrapper}>
-               <PieChart size={24} />
-            </div>
-            <div>
+            <div className={styles.iconBox}><PieChart size={20} /></div>
+            <div className={styles.statText}>
               <h4>90%</h4>
-              <p>Income Distribution</p>
+              <p>INCOME DISTRIBUTION</p>
             </div>
           </div>
-
           <div className={styles.statItem}>
-            <div className={styles.iconWrapper}>
-              <Percent size={24} />
-            </div>
-            <div>
+            <div className={styles.iconBox}><Percent size={20} /></div>
+            <div className={styles.statText}>
               <h4>Stable</h4>
-              <p>Rental Yields</p>
+              <p>RENTAL YIELDS</p>
             </div>
           </div>
-
           <div className={styles.statItem}>
-            <div className={styles.iconWrapper}>
-              <TrendingUp size={24} />
-            </div>
-            <div>
+            <div className={styles.iconBox}><TrendingUp size={20} /></div>
+            <div className={styles.statText}>
               <h4>Assured</h4>
-              <p>Capital Appreciation</p>
+              <p>CAPITAL APPRECIATION</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

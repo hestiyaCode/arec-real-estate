@@ -1,52 +1,44 @@
 .heroWrapper {
-  position: relative;
-  min-height: calc(100vh - 70px);
+  background: #ffffff; /* Clean white background */
+  min-height: 100vh;
+  padding: 100px 0 40px 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to bottom, rgba(117, 114, 114, 0.9) 0%, rgba(255, 255, 255, 0.8)0%), 
-              url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');
-  background-size: cover;
-  background-position: center;
-  padding: 80px 0;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+}
+
+.heroMain {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
   align-items: center;
-  text-align: center;
-  z-index: 5;
+  margin-bottom: 80px;
 }
 
-.textContent {
-  width: 100%;
-  margin-bottom: 60px;
-}
-
+/* Left Content */
 .badge {
+  background: rgba(39, 174, 96, 0.08);
   color: #27ae60;
-  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-  background: rgba(39, 174, 96, 0.1);
-  padding: 8px 16px;
-  border-radius: 50px;
-  display: inline-block;
+  letter-spacing: 1px;
 }
 
 .mainTitle {
-  color: #000000;
-  font-size: 64px; /* Increased for full-page spread */
-  font-weight: 900;
+  font-size: 68px;
+  font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
+  color: #1a1a1a;
+  margin: 25px 0;
 }
 
 .greenText {
@@ -54,180 +46,553 @@
 }
 
 .subTitle {
-  color: #000000;
-  font-size: 22px;
+  font-size: 18px;
+  color: #666;
+  max-width: 500px;
+  margin-bottom: 40px;
   line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
 }
 
-/* Button Styling */
 .buttonGroup {
   display: flex;
   gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .primaryBtn {
-  background-color: #27ae60;
-  color: #ffffff;
-  padding: 16px 40px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.primaryBtn:hover {
-  background-color: #219150;
-  transform: translateY(-3px);
+  background: #27ae60;
+  color: white;
+  padding: 18px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
   box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+  transition: 0.3s;
 }
 
 .outlineBtn {
-  background-color: transparent;
-  color: #000000;
-  padding: 16px 40px;
-  border: 2px solid #27ae60;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.outlineBtn:hover {
-  background-color: rgba(39, 174, 96, 0.05);
-  transform: translateY(-3px);
-}
-
-/* Stats Row - Spread Across Full Width */
-.statsRow {
+  border: 1px solid #ddd;
+  padding: 18px 35px;
+  border-radius: 50px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
   display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.socialProof {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatarGroup {
+  display: flex;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: #eee;
+  margin-left: -12px;
+}
+
+.avatar:first-child { margin-left: 0; }
+
+.more {
+  background: #27ae60 !important;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Right Side: Featured Card */
+.featuredCard {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s;
+}
+
+.featuredCard:hover {
+  transform: translateY(-10px);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 350px;
+}
+
+.cardImage {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardBadge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  backdrop-filter: blur(5px);
+}
+
+.cardBody {
+  padding: 25px;
+  position: relative;
+}
+
+.cardHeader {
+  display: flex;
   justify-content: space-between;
-  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.cardLocation {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.irrBadge {
+  background: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.cardStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.cardStatItem p {
+  font-size: 10px;
+  color: #999;
+  font-weight: 700;
+}
+
+.cardStatItem strong {
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.cardArrow {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  color: #27ae60;
+}
+
+/* Bottom Bar */
+.bottomStatsBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
   padding-top: 50px;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #f0f0f0;
 }
 
 .statItem {
   display: flex;
   align-items: center;
   gap: 15px;
-  text-align: left;
 }
 
-.iconWrapper {
+.iconBox {
+  background: #f9f9f9;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(39, 174, 96, 0.1);
-  border-radius: 12px;
-  color: #27ae60;
+  color: #1a1a1a;
+  border: 1px solid #eee;
 }
 
-.statItem h4 {
-  color: #000000;
-  font-size: 22px;
+.statText h4 {
+  font-size: 20px;
   font-weight: 800;
   margin: 0;
 }
 
-.statItem p {
-  color: #000000;
-  font-size: 11px;
+.statText p {
+  font-size: 10px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 0.5px;
+}
+.heroWrapper {
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 100px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.heroMain {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+/* --- ANIMATION CLASSES --- */
+
+/* 1. Text Animation: Top to Bottom */
+.textContent {
+  animation: fadeDown 0.8s ease-out forwards;
+}
+
+.badge {
+  background: rgba(39, 174, 96, 0.08);
+  color: #27ae60;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
-  font-weight: 600;
-  margin-top: 2px;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeDown 0.6s ease-out 0.2s forwards; /* Delayed */
 }
 
-/* --- Responsive Adjustments --- */
-
-@media (max-width: 1024px) {
-  .mainTitle {
-    font-size: 48px;
-  }
-  .statsRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    justify-items: center;
-  }
+.mainTitle {
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin: 25px 0;
+  opacity: 0;
+  animation: fadeDown 0.8s ease-out 0.4s forwards; /* Delayed */
 }
 
-@media (max-width: 768px) {
-  .mainTitle {
-    font-size: 36px;
-  }
-  .subTitle {
-    font-size: 18px;
-  }
-  .buttonGroup {
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  .statsRow {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .statItem {
-    flex-direction: column;
-    text-align: center;
-  }
+.subTitle {
+  font-size: 18px;
+  color: #666;
+  max-width: 500px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeDown 0.8s ease-out 0.6s forwards; /* Delayed */
 }
-/* ... (keep the rest of your previous CSS the same) ... */
 
+/* 2. Image/Card Animation: Left to Right */
+.cardContainer {
+  opacity: 0;
+  animation: slideRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+/* 3. Buttons & Social Proof: Fade Up */
 .buttonGroup {
   display: flex;
   gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.8s forwards;
 }
 
+.socialProof {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 1s forwards;
+}
+
+/* 4. Bottom Stats Bar: Staggered Fade Up */
+.bottomStatsBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-top: 50px;
+  border-top: 1px solid #f0f0f0;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 1.2s forwards;
+}
+
+/* --- KEYFRAMES --- */
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px); /* Left se start hoga */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Apni jagah par aayega */
+  }
+}
+
+/* --- REST OF THE STYLING (Existing) --- */
+
+.greenText { color: #27ae60; }
+
 .primaryBtn {
-  background-color: #27ae60;
-  color: #ffffff !important; /* Ensure text is white */
-  padding: 16px 40px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  text-decoration: none; /* Remove underline from link */
-  display: inline-block;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: #27ae60;
+  color: white;
+  padding: 18px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+  transition: 0.3s;
 }
 
 .primaryBtn:hover {
-  background-color: #219150;
-  transform: translateY(-3px);
+  transform: scale(1.05);
+  background: #219150;
+}
+
+.outlineBtn {
+  border: 1px solid #ddd;
+  padding: 18px 35px;
+  border-radius: 50px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.avatarGroup { display: flex; }
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: #eee;
+  margin-left: -12px;
+}
+.more {
+  background: #27ae60 !important;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.featuredCard {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.imageWrapper { position: relative; height: 350px; }
+.cardImage { width: 100%; height: 100%; object-fit: cover; }
+
+.cardBody { padding: 25px; }
+.cardHeader { display: flex; justify-content: space-between; margin-bottom: 25px; }
+.cardTitle { font-size: 24px; font-weight: 800; }
+.irrBadge { background: rgba(39, 174, 96, 0.1); color: #27ae60; padding: 6px 12px; border-radius: 8px; font-weight: 800; }
+
+.cardStats { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid #f0f0f0; padding-top: 20px; }
+.cardStatItem strong { font-size: 18px; color: #1a1a1a; }
+
+.iconBox { background: #f9f9f9; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; }
+.statText h4 { font-size: 20px; font-weight: 800; margin: 0; }
+
+/* ... baki purana code wahi rahega ... */
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row; /* Horizontal alignment ensure karne ke liye */
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.8s forwards;
+}
+
+.primaryBtn {
+  background: #27ae60;
+  color: #ffffff !important;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* Text ko gayab hone se bachane ke liye */
+  transition: all 0.3s ease;
+  border: none;
   box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
 }
 
 .outlineBtn {
-  background-color: transparent;
-  color: #000000 !important; /* Ensure text is black */
-  padding: 16px 40px;
-  border: 2px solid #27ae60;
-  border-radius: 8px;
-  font-weight: 700;
+  background: #ffffff; /* White background taaki clean dikhe */
+  border: 1px solid #e2e8f0; /* Light grey border */
+  padding: 16px 32px;
+  border-radius: 50px;
+  color: #1a1a1a !important; /* Dark text force karne ke liye */
+  text-decoration: none;
+  font-weight: 600;
   font-size: 16px;
-  text-decoration: none; /* Remove underline from link */
-  display: inline-block;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap; /* IMPORTANT: Isse text wapas aa jayega */
   transition: all 0.3s ease;
 }
 
 .outlineBtn:hover {
-  background-color: rgba(39, 174, 96, 0.05);
-  transform: translateY(-3px);
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
 }
 
-/* ... (keep the rest of your responsive styles) ... */
+/* Icons ke liye styling fix */
+.outlineBtn svg {
+  color: #64748b; /* Icon ka color thoda soft grey */
+  flex-shrink: 0;
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .buttonGroup {
+    flex-direction: column; /* Mobile par upar-niche button */
+    width: 100%;
+    align-items: stretch;
+  }
+  
+  .primaryBtn, .outlineBtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animations (Same as before) */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ensure card container has the slideRight animation */
+.cardContainer {
+  opacity: 0;
+  animation: slideRight 1s ease-out 0.4s forwards;
+}
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroMain { grid-template-columns: 1fr; }
+  .mainTitle { font-size: 50px; }
+  .bottomStatsBar { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .mainTitle { font-size: 40px; }
+  .buttonGroup { flex-direction: column; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroMain { grid-template-columns: 1fr; }
+  .mainTitle { font-size: 50px; }
+  .bottomStatsBar { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .mainTitle { font-size: 40px; }
+  .bottomStatsBar { grid-template-columns: 1fr; }
+  .buttonGroup { flex-direction: column; }
+}

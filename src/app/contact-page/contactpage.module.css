@@ -178,7 +178,91 @@
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
 }
+/* --- UPDATED UNIFIED INPUT STYLES --- */
 
+.inputField {
+  width: 100%;
+  background-color: var(--white-bg);
+  /* Changed from border-bottom to full border */
+  border: 1px solid var(--input-border);
+  padding: 0.8rem 1rem; /* Balanced padding */
+  color: var(--black-text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 8px; /* Standardized rounding for all fields */
+  outline: none;
+}
+
+/* Adjusting the select dropdown arrow and padding */
+select.inputField {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' %3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  cursor: pointer;
+}
+
+.inputField:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1);
+}
+
+.inputField::placeholder {
+  color: #a3a3a3;
+}
+
+/* --- ALIGNED PHONE INPUT GROUP --- */
+
+.phoneInputGroup {
+  display: flex;
+  width: 100%;
+  gap: 0; /* Glue them together */
+}
+
+.countrySelect {
+  width: 100px;
+  background-color: var(--white-bg);
+  color: var(--black-text); /* Fixed text visibility */
+  border: 1px solid var(--input-border);
+  border-right: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 0.8rem 0.5rem;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  /* Updated arrow for Light Theme */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' %3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 15px;
+}
+
+.phoneInputField {
+  flex: 1;
+  background-color: var(--white-bg);
+  color: var(--black-text); /* Fixed text visibility */
+  border: 1px solid var(--input-border);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 0.8rem 1rem;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Sync focus state for the whole group */
+.phoneInputGroup:focus-within .countrySelect,
+.phoneInputGroup:focus-within .phoneInputField {
+  border-color: var(--primary-green);
+}
+
+/* Remove icons from inputGroup if you are using placeholder labels now */
+.inputIcon {
+  display: none; 
+}
 /* --- ANIMATIONS --- */
 @keyframes slideDown {
   0% {
