@@ -14,32 +14,21 @@ const ContactPage = () => {
   const [status, setStatus] = useState(null);
   const [isLocked, setIsLocked] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
-  const [captchaRendered, setCaptchaRendered] = useState(false); // New state to track rendering
+  const [captchaRendered, setCaptchaRendered] = useState(false);
 
   useEffect(() => {
-    // 1. Check Entry Limit
-    const checkLimit = () => {
-      const lastEntry = localStorage.getItem('arec_last_submission');
-      if (lastEntry) {
-        const timePassed = Date.now() - parseInt(lastEntry);
-        if (timePassed < 3600000) { 
-          setIsLocked(true);
-        }
-      }
-    };
-    checkLimit();
+    const lastEntry = localStorage.getItem('arec_last_submission');
+    if (lastEntry && Date.now() - parseInt(lastEntry) < 3600000) {
+      setIsLocked(true);
+    }
 
-    // 2. Global Captcha Callbacks
-    window.onCaptchaChange = (value) => {
-      if(value) setCaptchaVerified(true);
-    };
-    window.onCaptchaExpired = () => {
-      setCaptchaVerified(false);
-    };
+    // Captcha Callbacks
+    window.onCaptchaChange = (value) => { if(value) setCaptchaVerified(true); };
+    window.onCaptchaExpired = () => { setCaptchaVerified(false); };
   }, []);
 
-  // 3. Logic: Phone Number type karte hi captcha show hoga
   useEffect(() => {
+    // Render Captcha when phone number starts being typed
     if (formData.phoneNumber.length > 0 && !captchaRendered) {
       if (window.grecaptcha && document.getElementById('recaptcha-main')) {
         try {
@@ -49,10 +38,8 @@ const ContactPage = () => {
             'expired-callback': window.onCaptchaExpired,
             'theme': 'light'
           });
-          setCaptchaRendered(true); // Ensure it only renders once
-        } catch (error) {
-          console.log("Captcha error or already rendered");
-        }
+          setCaptchaRendered(true);
+        } catch (error) { console.log("Captcha error", error); }
       }
     }
   }, [formData.phoneNumber, captchaRendered]);
@@ -62,10 +49,17 @@ const ContactPage = () => {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleFinalSubmit = async (e) => {
+  // Single Phase Submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isLocked) return toast.error("You can only submit once per hour.");
-    if (!captchaVerified) return toast.error("Please complete the 'I am not a robot' verification.");
+
+    if (!captchaVerified) {
+      return toast.error("Please verify 'I am not a robot' first.");
+    }
+
+    if (formData.phoneNumber.length < 10) {
+      return toast.error("Please enter a valid phone number.");
+    }
 
     setStatus("loading");
     const loadingToast = toast.loading("Submitting your application...");
@@ -83,19 +77,19 @@ const ContactPage = () => {
       if (response.ok) {
         localStorage.setItem('arec_last_submission', Date.now().toString());
         setIsLocked(true);
-        setStatus("success");
         setFormData({ username: '', countryCode: '+91', phoneNumber: '', occupation: '' }); 
         toast.dismiss(loadingToast);
         toast.success("Application Submitted Successfully!");
-        if (window.grecaptcha) window.grecaptcha.reset();
-        setCaptchaVerified(false);
       } else {
-        throw new Error("API Error");
+        const errData = await response.json();
+        toast.dismiss(loadingToast);
+        toast.error(errData.message || "Submission failed. Please try again.");
       }
     } catch (error) {
-      setStatus(null);
       toast.dismiss(loadingToast);
-      toast.error("Something went wrong with the form submission.");
+      toast.error("Something went wrong. Please try again later.");
+    } finally {
+      setStatus(null);
     }
   };
 
@@ -105,6 +99,7 @@ const ContactPage = () => {
       <div className={styles.bgOverlay}></div>
 
       <div className={styles.container}>
+        {/* Left Side: Info Content */}
         <div className={styles.headerContent}>
           <h1 className={styles.title}>
             Get in <span className={styles.greenText}>Touch</span>
@@ -114,89 +109,60 @@ const ContactPage = () => {
             Fill out the form and our team will reach out to you regarding 
             investments and portfolio management.
           </p>
+          
           <div className={styles.contactInfo}>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>Address:</span>
+              <span className={styles.infoLabel}>ADDRESS:</span>
               <p>B69, Ground floor Sector 63, Noida, Uttar Pradesh 201301</p>
             </div>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>Phone:</span>
+              <span className={styles.infoLabel}>PHONE:</span>
               <p><a href="tel:+919667007078" className={styles.link}>+91 96670 07078</a></p>
             </div>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>Email:</span>
+              <span className={styles.infoLabel}>EMAIL:</span>
               <p><a href="mailto:connect@thearec.com" className={styles.link}>connect@thearec.com</a></p>
             </div>
           </div>
         </div>
 
+        {/* Right Side: Form Card */}
         <div className={styles.formCard}>
           <h2 className={styles.formTitle}>Contact Us</h2>
           <p className={styles.formSubtitle}>Provide your details to proceed.</p>
 
-          <form onSubmit={handleFinalSubmit} className={styles.form}>
-            
+          <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
               <input 
-                type="text" 
-                name="username" 
-                value={formData.username} 
-                onChange={handleChange} 
-                placeholder="Full Name" 
-                className={styles.inputField} 
-                required 
+                type="text" name="username" value={formData.username} 
+                onChange={handleChange} placeholder="Full Name" 
+                className={styles.inputField} required 
               />
             </div>
 
             <div className={styles.phoneInputGroup}>
-              <select 
-                name="countryCode" 
-                value={formData.countryCode} 
-                onChange={handleChange} 
-                className={styles.countrySelect}
-              >
+              <select name="countryCode" value={formData.countryCode} onChange={handleChange} className={styles.countrySelect}>
                 <option value="+91">+91 IN</option>
                 <option value="+971">+971 UAE</option>
-                <option value="+1">+1 USA</option>
-                <option value="+44">+44 UK</option>
               </select>
               <input 
-                type="tel" 
-                name="phoneNumber" 
-                value={formData.phoneNumber} 
-                onChange={handleChange} 
-                placeholder="Phone Number" 
-                className={styles.phoneInputField} 
-                required 
+                type="tel" name="phoneNumber" value={formData.phoneNumber} 
+                onChange={handleChange} placeholder="Phone Number" 
+                className={styles.phoneInputField} required 
               />
             </div>
 
-            {/* Captcha conditionally rendered container */}
-            <div 
-              className={styles.captchaWrapper} 
-              style={{ 
-                display: formData.phoneNumber.length > 0 ? 'flex' : 'none',
-                opacity: formData.phoneNumber.length > 0 ? 1 : 0,
-                transition: 'opacity 0.5s ease'
-              }}
-            >
+            {/* Captcha Wrapper */}
+            <div className={styles.captchaWrapper} style={{ display: formData.phoneNumber.length > 0 ? 'flex' : 'none', marginBottom: '15px' }}>
                 <div id="recaptcha-main"></div> 
             </div>
 
             <div className={styles.inputGroup}>
-              <select 
-                name="occupation" 
-                value={formData.occupation} 
-                onChange={handleChange} 
-                className={styles.inputField} 
-                required
-              >
+              <select name="occupation" value={formData.occupation} onChange={handleChange} className={styles.inputField} required>
                 <option value="" disabled>Select Occupation</option>
                 <option value="High-Net-Worth Individual">High-Net-Worth Individual (HNWI)</option>
                 <option value="Non-Resident Indian">Non-Resident Indian (NRI)</option>
                 <option value="Business Owner">Business Owner / Entrepreneur</option>
-                <option value="Corporate Executive">Corporate Executive (CXO/VP)</option>
-                <option value="Institutional Investor">Institutional Investor</option>
                 <option value="Other">Other</option>
               </select>
             </div>

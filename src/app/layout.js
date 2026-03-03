@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         {/* ✅ Google Ads Global Site Tag */}
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17971251005"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17841688200"
           strategy="afterInteractive"
         />
         <Script
@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
               function gtag(){dataLayer.push(arguments);}
               window.gtag = gtag;
               gtag('js', new Date());
-              gtag('config', 'AW-17971251005');
+              gtag('config', 'AW-17841688200');
             `,
           }}
         />

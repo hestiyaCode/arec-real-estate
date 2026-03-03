@@ -239,7 +239,14 @@ select.inputField {
   background-position: right 5px center;
   background-size: 15px;
 }
-
+.changeNumber {
+  color: #28a745;
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
 .phoneInputField {
   flex: 1;
   background-color: var(--white-bg);

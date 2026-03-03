@@ -10,13 +10,13 @@ const steps = [
     title: "Browse & Evaluate",
     description: "Access our curated list of Grade-A assets. We filter through hundreds of properties to bring you the top 1% with high growth potential.",
     features: [
-      "AI-driven location analysis",
+      
       "Historical rental yield data",
       "Complete legal due diligence reports"
     ],
     
     icon: <Search size={24} />,
-    image: "/browse and evaluate.jpeg"
+    image: "/BrowseEvaluate1.png"
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const steps = [
     ],
     
     icon: <FileSignature size={24} />,
-    image: "/invest and digitise.jpeg"
+    image: "/InvestDigitise2.png"
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const steps = [
     ],
     
     icon: <Coins size={24} />,
-    image: "/track and earn.jpeg"
+    image: "/TrackEarn3.png"
   }
 ];
 
