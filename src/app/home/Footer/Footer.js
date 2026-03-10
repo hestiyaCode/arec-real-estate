@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation'; // Added for smart navigation
-import { Linkedin, Twitter, Instagram, Mail, Phone } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
+// Added MapPin to the imports
+import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react'; 
 import styles from './footer.module.css';
 
 const Footer = () => {
@@ -11,7 +12,6 @@ const Footer = () => {
   const router = useRouter();
 
   const handleScrollToFaq = (e) => {
-    // If we are already on the homepage, just scroll smoothly
     if (pathname === '/') {
       e.preventDefault();
       const faqSection = document.getElementById('faq');
@@ -19,8 +19,6 @@ const Footer = () => {
         faqSection.scrollIntoView({ behavior: 'smooth' });
       }
     } 
-    // If we are on another page, let the default <Link> behavior 
-    // take us to "/#faq", which browser handles automatically.
   };
 
   return (
@@ -47,6 +45,14 @@ const Footer = () => {
                 <Phone size={16} className={styles.icon} />
                 <span>+91 96670 07078</span>
               </div>
+              {/* Added Address Section Below Phone Number */}
+              <div className={styles.contactItem} style={{ alignItems: 'flex-start' }}>
+                <MapPin size={16} className={styles.icon} style={{ marginTop: '4px' }} />
+                <span>
+                  B69, Ground floor Sector 63,<br /> 
+                  Noida, Uttar Pradesh 201301
+                </span>
+              </div>
             </div>
           </div>
 
@@ -55,7 +61,6 @@ const Footer = () => {
             <h4 className={styles.colHeading}>Company</h4>
             <ul className={styles.linkList}>
               <li><Link href="/aboutUs">About Us</Link></li>
-              
               <li><Link href="/InsightsAndBlogsPage">Insights & Blog</Link></li>
               <li><Link href="/contact-page">Contact Us</Link></li>
             </ul>
@@ -67,8 +72,6 @@ const Footer = () => {
             <ul className={styles.linkList}>
               <li><Link href="/projects">Explore Projects</Link></li>
               <li><Link href="/How-it-works-page">How it works?</Link></li>
-              
-              {/* FIXED LINK: Changed "#faq" to "/#faq" */}
               <li>
                 <Link 
                   href="/#faq" 
@@ -78,8 +81,6 @@ const Footer = () => {
                   FAQs
                 </Link>
               </li>
-
-              
             </ul>
           </div>
 
