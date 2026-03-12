@@ -75,6 +75,13 @@ const ContactPage = () => {
       });
 
       if (response.ok) {
+        // ✅ GOOGLE ADS CONVERSION TRIGGER
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-17841688200/x-H2CK_N9qEaEPjW9-Y-', // Is label ko apne dashboard se verify karein
+          });
+        }
+
         localStorage.setItem('arec_last_submission', Date.now().toString());
         setIsLocked(true);
         setFormData({ username: '', countryCode: '+91', phoneNumber: '', occupation: '' }); 
@@ -92,7 +99,6 @@ const ContactPage = () => {
       setStatus(null);
     }
   };
-
   return (
     <div className={styles.pageWrapper}>
       <Toaster position="top-center" reverseOrder={false} />
