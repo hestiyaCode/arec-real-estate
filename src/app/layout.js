@@ -29,6 +29,15 @@ export default function RootLayout({ children }) {
       <head>
         {/* ✅ Google Ads Global Site Tag */}
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J3S2Q3RX58"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J3S2Q3RX58');
+</script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17841688200"
           strategy="afterInteractive"
