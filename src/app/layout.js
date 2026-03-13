@@ -27,39 +27,33 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Google Ads Global Site Tag */}
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J3S2Q3RX58"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J3S2Q3RX58');
-</script>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17841688200"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-ads-base"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
-              gtag('js', new Date());
-              gtag('config', 'AW-17841688200');
-            `,
-          }}
+        {/* ✅ Correct way to load ReCaptcha */}
+        <Script 
+          src="https://www.google.com/recaptcha/api.js" 
+          strategy="beforeInteractive" 
         />
       </head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* ✅ Google Tag Manager / Global Site Tag (Consolidated) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J3S2Q3RX58"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag; // Makes it accessible globally
+            gtag('js', new Date());
+
+            // Config for Analytics
+            gtag('config', 'G-J3S2Q3RX58');
+            // Config for Google Ads
+            gtag('config', 'AW-17841688200');
+          `}
+        </Script>
+
         <Header />
         {children}
         <Analytics />
