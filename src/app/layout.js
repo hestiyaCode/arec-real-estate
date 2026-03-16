@@ -35,6 +35,12 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Ahrefs Analytics */}
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="irrjoPBcdddOSmmalp86PA"
+          strategy="afterInteractive"
+        />
 
         {/* Google Tag */}
         <Script
@@ -65,7 +71,6 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics />
         <Footer />
-
       </body>
     </html>
   );
