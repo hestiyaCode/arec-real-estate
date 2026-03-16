@@ -27,29 +27,36 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Correct way to load ReCaptcha */}
-        <Script 
-          src="https://www.google.com/recaptcha/api.js" 
-          strategy="beforeInteractive" 
+        {/* ReCaptcha */}
+        <Script
+          src="https://www.google.com/recaptcha/api.js"
+          strategy="beforeInteractive"
         />
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* ✅ Google Tag Manager / Global Site Tag (Consolidated) */}
+
+        {/* Google Tag */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J3S2Q3RX58"
           strategy="afterInteractive"
         />
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag; // Makes it accessible globally
+            window.gtag = gtag;
+
             gtag('js', new Date());
 
-            // Config for Analytics
+            // Existing Analytics
             gtag('config', 'G-J3S2Q3RX58');
-            // Config for Google Ads
+
+            // NEW Analytics ID
+            gtag('config', 'G-RXYYHMZ13V');
+
+            // Google Ads
             gtag('config', 'AW-17841688200');
           `}
         </Script>
@@ -58,6 +65,7 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics />
         <Footer />
+
       </body>
     </html>
   );
