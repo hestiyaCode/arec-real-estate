@@ -2,7 +2,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-// Added MapPin to the imports
 import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react'; 
 import styles from './footer.module.css';
 
@@ -45,7 +44,6 @@ const Footer = () => {
                 <Phone size={16} className={styles.icon} />
                 <span>+91 96670 07078</span>
               </div>
-              {/* Added Address Section Below Phone Number */}
               <div className={styles.contactItem} style={{ alignItems: 'flex-start' }}>
                 <MapPin size={16} className={styles.icon} style={{ marginTop: '4px' }} />
                 <span>
@@ -88,15 +86,21 @@ const Footer = () => {
           <div className={styles.column}>
             <h4 className={styles.colHeading}>Connect</h4>
             <div className={styles.socialLinks}>
-              <span aria-label="LinkedIn" style={{ cursor: 'default' }}>
+              {/* LinkedIn Link Updated Here */}
+              <a 
+                href="https://www.linkedin.com/in/arec-undefined-09b4313b6/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className={styles.socialIconLink}
+              >
                 <Linkedin size={20} />
-              </span>
+              </a>
+
               <span aria-label="Twitter" style={{ cursor: 'default' }}>
                 <Twitter size={20} />
               </span>
-              <span aria-label="Instagram" style={{ cursor: 'default' }}>
-                <Instagram size={20} />
-              </span>
+              
             </div>
 
             <h4 className={`${styles.colHeading} ${styles.legalHeading}`}>Legal</h4>
