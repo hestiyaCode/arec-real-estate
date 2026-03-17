@@ -86,7 +86,7 @@ const Footer = () => {
           <div className={styles.column}>
             <h4 className={styles.colHeading}>Connect</h4>
             <div className={styles.socialLinks}>
-              {/* LinkedIn Link Updated Here */}
+              {/* LinkedIn Link */}
               <a 
                 href="https://www.linkedin.com/in/arec-undefined-09b4313b6/" 
                 target="_blank" 
@@ -97,9 +97,17 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
 
-              <span aria-label="Twitter" style={{ cursor: 'default' }}>
+              {/* Twitter (X) Link Added Here */}
+              <a 
+                href="https://x.com/TheArecOfficial" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className={styles.socialIconLink}
+              >
                 <Twitter size={20} />
-              </span>
+              </a>
+
               
             </div>
 
