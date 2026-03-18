@@ -3,12 +3,16 @@ import { useState, useEffect } from "react";
 import styles from "./Dashboard.module.css";
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("blogs"); // 'blogs', 'projects', or 'leads'
+  const [activeTab, setActiveTab] = useState("blogs"); // 'blogs', 'projects', 'leads', or 'career'
   const [isUploading, setIsUploading] = useState(false);
 
   // --- CONTACT LEADS STATE ---
   const [leads, setLeads] = useState([]);
   const [loadingLeads, setLoadingLeads] = useState(false);
+
+  // --- CAREER LEADS STATE ---
+  const [careerLeads, setCareerLeads] = useState([]);
+  const [loadingCareer, setLoadingCareer] = useState(false);
 
   // --- BLOG STATE ---
   const [blogData, setBlogData] = useState({
@@ -31,7 +35,7 @@ export default function Dashboard() {
   });
   const [projectImage, setProjectImage] = useState(null);
 
-  // --- FETCH LEADS FUNCTION ---
+  // --- FETCH FUNCTIONS ---
   const fetchLeads = async () => {
     setLoadingLeads(true);
     try {
@@ -47,10 +51,27 @@ export default function Dashboard() {
     }
   };
 
-  // Jab bhi tab 'leads' par switch ho, data fetch karein
+  const fetchCareerLeads = async () => {
+    setLoadingCareer(true);
+    try {
+      const res = await fetch("/api/career"); // Make sure this API exists
+      const result = await res.json();
+      if (result.success) {
+        setCareerLeads(result.data);
+      }
+    } catch (err) {
+      console.error("Error fetching career leads:", err);
+    } finally {
+      setLoadingCareer(false);
+    }
+  };
+
+  // Tab switching logic
   useEffect(() => {
     if (activeTab === "leads") {
       fetchLeads();
+    } else if (activeTab === "career") {
+      fetchCareerLeads();
     }
   }, [activeTab]);
 
@@ -135,6 +156,12 @@ export default function Dashboard() {
             >
               📇 Contact Leads
             </p>
+            <p 
+              className={`${styles.navItem} ${activeTab === "career" ? styles.activeNav : ""}`}
+              onClick={() => setActiveTab("career")}
+            >
+              💼 Career Applications
+            </p>
           </nav>
         </div>
       </aside>
@@ -145,7 +172,7 @@ export default function Dashboard() {
           <h2 className={styles.headerTitle}>
             {activeTab === "blogs" ? "Blog Management" : 
              activeTab === "projects" ? "Premium Investment Opportunities" : 
-             "Customer Contact Leads"}
+             activeTab === "leads" ? "Customer Contact Leads" : "Career Applications"}
           </h2>
           <button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
         </header>
@@ -153,8 +180,50 @@ export default function Dashboard() {
         <section className={styles.formSection}>
           <div className={styles.formCard}>
             
-            {activeTab === "leads" ? (
-              /* LEADS TABLE */
+            {/* --- CAREER TABLE --- */}
+            {activeTab === "career" ? (
+              <div className={styles.leadsContainer}>
+                <h3 className={styles.formHeading}>Recent Job Applications</h3>
+                {loadingCareer ? (
+                  <p>Loading applications...</p>
+                ) : careerLeads.length === 0 ? (
+                  <p>No applications found.</p>
+                ) : (
+                  <div style={{ overflowX: "auto" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "20px" }}>
+                      <thead>
+                        <tr style={{ backgroundColor: "#f8f9fa", textAlign: "left", borderBottom: "2px solid #eee" }}>
+                          <th style={{ padding: "12px" }}>Name</th>
+                          <th style={{ padding: "12px" }}>Email</th>
+                          <th style={{ padding: "12px" }}>Reason</th>
+                          <th style={{ padding: "12px" }}>Resume</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {careerLeads.map((app) => (
+                          <tr key={app._id} style={{ borderBottom: "1px solid #eee" }}>
+                            <td style={{ padding: "12px" }}>{app.name}</td>
+                            <td style={{ padding: "12px" }}>{app.email}</td>
+                            <td style={{ padding: "12px" }}>{app.reason}</td>
+                            <td style={{ padding: "12px" }}>
+                              <a 
+                                href={app.resumeUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{ color: "#007bff", textDecoration: "underline", fontWeight: "bold" }}
+                              >
+                                View/Download
+                              </a>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            ) : activeTab === "leads" ? (
+              /* --- CONTACT LEADS TABLE --- */
               <div className={styles.leadsContainer}>
                 <h3 className={styles.formHeading}>Recent Inquiries</h3>
                 {loadingLeads ? (
@@ -189,7 +258,7 @@ export default function Dashboard() {
                 )}
               </div>
             ) : activeTab === "blogs" ? (
-              /* BLOG FORM */
+              /* --- BLOG FORM --- */
               <>
                 <h3 className={styles.formHeading}>Create a New Insight</h3>
                 <form onSubmit={handleBlogSubmit} className={styles.blogForm}>
@@ -224,7 +293,7 @@ export default function Dashboard() {
                 </form>
               </>
             ) : (
-              /* PROJECT FORM */
+              /* --- PROJECT FORM --- */
               <>
                 <h3 className={styles.formHeading}>List New Opportunity</h3>
                 <form onSubmit={handleProjectSubmit} className={styles.blogForm}>

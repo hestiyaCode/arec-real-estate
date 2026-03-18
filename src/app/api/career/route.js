@@ -2,6 +2,17 @@ import { NextResponse } from 'next/server';
 import { put } from '@vercel/blob'; // This is the key for Vercel
 import dbConnect from '@/lib/db';
 import Career from '@/models/Career';
+// src/app/api/career/route.js
+export async function GET() {
+  try {
+    await dbConnect();
+    const applications = await Career.find({}).sort({ createdAt: -1 });
+    return NextResponse.json({ success: true, data: applications });
+  } catch (error) {
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  }
+}
+
 
 export async function POST(req) {
   try {

@@ -6,7 +6,7 @@ export default function Projects() {
     <>
       
       <ProjectsPage/>
-      <Footer/>
+      
     </>
   );
 }
